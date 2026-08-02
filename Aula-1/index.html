@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title><span class="lecture_placeholder"></title>
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
+  <link rel="stylesheet" href="css/mine.css">
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Cabeçalho -->
+  <div id="header-template">
+    <a href="https://unisal.br/">
+      <img src="img/logo_unisal.png" alt="Logo">
+    </a>
+    <h1>Aula &nbsp; <span id="aula_num_placeholder"></span> &nbsp; - &nbsp; <span class="lecture_placeholder"></span>
+      &nbsp; - &nbsp; <span class="lecture_subject_placeholder"></span></h1>
+  </div>
+
+  <!-- Rodapé -->
+  <div id="footer-template">
+    UNISAL - São José, Campinas - &nbsp; <span id="year-placeholder"></span>
+  </div>
+
+  <!-- Slides -->
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <a href="https://unisal.br/">
+          <img src="img/logo_unisal.png" alt="logo unisal"
+            style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+        </a>
+        <h2><span class="lecture_placeholder"></h2>
+        <h3><span class="lecture_subject_placeholder"></span></h3>
+        <p>
+          <small>Prof. Me. Gustavo Ferreira Palma</small>
+        </p>
+      </section>
+
+      <section>
+        <section>
+          <h2>Quem Sou eu?</h2>
+          <h4>Formação Acadêmica</h4>
+          <ul>
+            <li>Técnico em Informática - Etec Waldyr Duron Júnior</li>
+            <li>Tecnólogo em Análise e Desenvolvimento de Sistemas - FATEC Ourinhos</li>
+            <li>Especialista Em Eletrônica Embarcada - UNISAL</li>
+            <li>Mestre em Inteligência Computacional Aplicada - UTFPR</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>Experiência Profissional</h4>
+          <ul>
+            <li>Analista de Tecnologia - Chiptronic Eletrônica do Brasil (2011-2019)</li>
+            <li>Professor de Graduação - Eduvale Avaré (2017-2019)</li>
+            <li>Analista de Desenvolvimento - Stoneridge Brasil (2019-2020)</li>
+            <li>Consultor Tecnológico - Instituto de Pesquisas Eldorado (2020)</li>
+            <li>Professor de Graduação e Pós-Graduação - UNISAL (2023)</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <h1>Quem São Vocês?</h1>
+      </section>
+
+      <section>
+        <h2>O que Vamos Estudar?</h2>
+
+        <ul>
+          <li>UX - User Experience (Experiência do Usuário)</li>
+          <ul>
+            <li>Soluções Centradas no usuário</li>
+            <li>Usabilidade de Sistemas</li>
+            <li>Interoperabilidade de Sistemas</li>
+            <li>Conectividade</li>
+            <li>Acessibilidade</li>
+            <li>Internacionalização</li>
+            <li>Regionalização</li>
+          </ul>
+          <li>UI - User Interface (Interface com o Usuário)</li>
+          <ul>
+            <li>Componentização</li>
+            <li>Temas e Paletas de Cor</li>
+            <li>Tipografia</li>
+            <li>Iconografia</li>
+            <li>Fluxos de Interação</li>
+            <li>Mapas Usabilidade</li>
+          </ul>
+          <li>Entre outros...</li>
+        </ul>
+      </section>
+
+      <!-- <section>
+        <h2>Bibliografia Básica</h2>
+        <ul>
+          <li>Conci, Aura. Computação Gráfica: Teoria e Prática - Geração De Imagens - Volume 1. Contribuição de Cristina Nader Vasconcelos e Eduardo Azevedo, Alta Books, 2021.</li>
+          <li>Barelli, Felipe. Introdução à visão computacional: uma abordagem prática com Python e OpenCV. Casa do Código, 2018.</li>
+        </ul>
+      </section> -->s
+
+      <section>
+        <section>
+          <h2>Métodos de Avaliação</h2>
+          <ul>
+            <li>Majoritariamente avaliações práticas;</li>
+            <li>Se/Quando Necessário, Avaliação escrita;</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Combinados de Ouro</h2>
+          <ul>
+            <li>Nosso Curso é PRESENCIAL, então para ter presença é preciso estar PRESENTE;</li>
+            <li>Abono de Faltas, somente com atestado e casos previstos;</li>
+            <li>Nossa Sala de Aula é um ambiente seguro, fiquem a vontade para perguntar, tirar dúvidas, fazer
+              experimentos, é um prazer ajudar e contribuir para o crescimento de cada um de vocês;</li>
+            <li>Evitem Conversas Paralelas, por mais que pareça que temos muito tempo, nosso tempo em sala de aula é
+              curto, aproveitem;</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Combinados de Ouro</h2>
+          <ul>
+            <li>Se tivermos alguma atividade manuscrita, caprichem na caligrafia, não sou farmacêutico, se eu não
+              conseguir ler, não tem nota;</li>
+            <li>Lembrem-se em toda e qualquer atividade que desenvolvermos, eu sei que o Chat-GPT sabe como resolver,
+              nesse momento quero saber de vocês, não tenham medo de errar, de testar, de experimentar, perguntem se
+              necessário, desenvolvam suas capacidades.</li>
+            <li>Guardem as conversas para momentos extra-classe, todos aqui são amigos, mas durante as aulas, o
+              importante é ouvir, perguntar e
+              interagir, com o professor.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Estrutura da Disciplina</h2>
+          <ul>
+            <li>Esta é uma disciplina que condensa muitos conteúdos, abordar tudo seria impossível, mesmo que os
+              conteúdos não estivessem concentrados em uma única disciplina;</li>
+            <li>Contudo, se todos cooperarmos, vamos conseguir aprender o mínimo necessário para criar aplicações
+              completas, tanto para dispositivos móveis quanto para Web;</li>
+            <li>Como irei acompanha-los também na disciplina de 'UI & UX', vou conseguir dividir os conteúdos entre as
+              duas disciplinas, então irei trata-las como disciplinas complementares, para melhor aproveitar nosso
+              tempo;
+            </li>
+            <li>Apesar de complementares, as disciplinas terão notas e avaliações distintas, separadas. Os conteúdos
+              serão complementares mas as notas serão isoladas;</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <h1>Dúvidas?</h1>
+      </section>
+
+      <section>
+        <h1>UX: O que define o um produto como bom ou ruim?</h1>
+      </section>
+
+      <section>
+        <h2>UX: O que define o um produto como bom ou ruim?</h2>
+        <ul>
+          <li>Em um primeiro momento, o primeiro ponto a vir a mente pode ser "Um produto bom é aquele que tem
+            qualidade";</li>
+          <li>Contudo, o conceito de qualidade não está diretamente ligado a alguma coisa "boa", uma vez que existem
+            "qualidades boas" e "qualidades ruins", indo mais além, qualidade está relacionada à constância com que se
+            produz algo:</li>
+          <ul>
+            <li>Um exemplo bem claro pode ser aqueles chocolates de menor mais simples, cheios de gordura vegetal
+              hidrogenada, todos os produtos da linha tem as mesmas características, ou variam tão mínimamente que
+              podemos desconsidera-las</li>
+            <li>E a mesma ideia se aplicaria a linhas de produção de produtos maiores, como carros, Televisores,
+              smartphones e etc, por exemplo.</li>
+          </ul>
+        </ul>
+      </section>
+
+      <section>
+        <h2>UX: O que define o um produto como bom ou ruim?</h2>
+        <ul>
+          <li>Mudando o foco da discussão agora, para produtos de software, podemos definir como sendo produtos de
+            qualidade aqueles que:</li>
+          <ul>
+            <li>Executam as tarefas para as quais foram projetados sem desvios ou falhas inerentes do seu processos de
+              desenvolvimento (aqui não consideramos fatores externos, como internet lenta ou quedas de energia ou
+              indisponibilidade de serviços de terceiros);</li>
+            <li>Exibem robustez, não quebram, não exibem erros inteligíveis ao usuário, à fatores externos que possam
+              causar falhas nas tarefas programadas (aqui levamos em consideração tudo aquilo que não levamos no item
+              anterior)</li>
+          </ul>
+        </ul>
+      </section>
+
+      <section>
+        <h1>UX: O que são soluções centradas no usuário?</h1>
+      </section>
+
+      <section>
+        <h2>UX: O que são soluções centradas no usuário?</h2>
+        <ul>
+          <li>Soluções centradas no usuário são todas as soluções, de produtos ou serviços, que colocam o usuário como
+            ponto focal, desde a concepção da ideia, desenvolvimento e execução do projeto até as etapas de venda e
+            pós-venda.</li>
+
+          <li>Idealmente todo produto, não sõ os produtos de software, ou produtos do mercado da tecnologia, deveriam
+            ter o usuário como seu foco principal, uma vez que desde a escolha, compra, uso e/ou consumo dependerá do
+            usuário;</li>
+
+          <li>Contudo ainda é possível notar na sociedade diversos produtos que não colocam o usuário como ponto focal
+            no desenvolvimento de seus produtos e serviços, isso pode acontece em alguns caos devido a estratégia da
+            empresa, e na maioria deles por imaturidade empresarial, ou falta de visão a longo prazo</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>UX: O que são soluções centradas no usuário?</h2>
+        <ul>
+          <li>Um exemplo claro solução centrada no usuário com estratégia, são as <i>Fintechs</i>, seus usuários são na
+            sua esmagadora maioria jovens, ou pessoas que não querem ter o mínimo de contato ou ainda contato algum com
+            "bancos tradicionais".</li>
+
+          <li>A grande maioria das <i>Fintechs</i> oferece os mesmos serviços que os bancos tradicionais, mas com a
+            ausência de agências físicas e com um uso muito forte da tecnologia para apoio ao negócio através de
+            aplicativos e Internet Banking </li>
+
+          <li>Pessoas com idade avançada ou sem letramento digital são praticamente excluídas de forma automática, mas
+            isso se deve a uma estratégia da empresa, não é nenhum 'erro no percurso'</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>UX: O que são soluções centradas no usuário?</h2>
+        <ul>
+          <li>Agora trazendo o foco da discussão e trazendo isso para a área da Computação, mais precisamente para a
+            área do desenvolvimento de sistemas </li>
+
+          <li>No fim da década de 1960, os videogames ganhavam forma e conquistavam usuários, e em 1973 a Atari, lançou
+            um dos principais marcos do mercado de vídeo games domésticos o Atari 2600, um copnsole completo, com
+            suporte para: Cartuchos, multiplos jogadores, Televisores coloridos e níveis de dificuldade, recursos
+            avançados para a época,</li>
+
+          <li>Contudo o controle de qualidade era nulo, Jogos sem qualquer qualidade eram vendidos aos consumidores, o
+            que provocou o desinteresse em massa por video games nos Estados Unidos</li>
+
+          <li>Além dos milhões de dólares em prejuízo, para toda a cadeia produtiva, isso causou um colapso no mercado
+            de video-games domésticos, sendo revertido apenas no natal de 1985</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>UX: O que são soluções centradas no usuário?</h2>
+        <ul>
+          <li>Uma técninca muito utilizada para definir fluxos e modos de operação em aplicações pensando no usuário é a
+            técnica de criação de personas </li>
+
+          <li>As personas não são pessoas reais, mas representam o que a população média de um grupo espera para aquela
+            solução</li>
+
+          <li>Voltando a pensar sobre aplicativos de bancos tradicionais, podemos pensar em duas personas para definir o
+            que melhor se enquadra a elas:</li>
+          <ul>
+            <li>Pessoas entre 20 e 30 anos</li>
+            <li>Pesoas acima de 50 Anos</li>
+          </ul>
+        </ul>
+      </section>
+
+      <section>
+        <h2>UX: O que são soluções centradas no usuário?</h2>
+        <ul>
+          <li>Para a Persaona do primeiro grupo: Pessoas entre 20 e 30 anos, devemos esperar que:</li>
+          <ul>
+            <li>Operações como PIX, cartões de crédito sejam prioritárias</li>
+            <li>Os fluxos podem ser desenhados de maneira mais fluída, a preocupação com acessibilidade ou mesmo
+              explicações e tours aqui, não é uma prioridade </li>
+          </ul>
+          <li>Para a Persaona do primeiro grupo: Pesoas acima de 50 Anos, devemos esperar que:</li>
+          <ul>
+            <li>O tamanho das fontes, deve ser maior</li>
+            <li>Fluxos de operação devem ser simplificados ao máximo, sem comprometer opções de segurança</li>
+            <li>Opções de extrato, investimento e poupança, passam a ter prioridade para esse grupo de usuários</li>
+          </ul>
+        </ul>
+      </section>
+
+      <section>
+        <h2>UX: O que são soluções centradas no usuário?</h2>
+        <ul>
+          <li>Perceba, que o aplicaitvo tem as mesmas funcionalidades para ambos os grupos de usuários, contudo o foco
+            de cada grupo, e o mais importate a necessiadade de cada um é diferente;</li>
+          <li>Desenvolver com foco no usuário é entender que levar todos esses aspectos em conta, não é uma 'frescura'
+            ou uma 'modinha', é o modo de garantir o sucesso da aplicação para todos os grupos de usuários</li>
+          <li>Traçar as prioridades da persona, entender quais são suas aspirações e necessidades, nos ajuda a
+            desenvolver outro ponto importantíssimo, que é a Jornada do Usuário</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>UX: O que são soluções centradas no usuário?</h2>
+        <ul>
+          <li>Perceba, que o aplicaitvo tem as mesmas funcionalidades para ambos os grupos de usuários, contudo o foco
+            de cada grupo, e o mais importate a necessiadade de cada um é diferente;</li>
+          <li>Desenvolver com foco no usuário é entender que levar todos esses aspectos em conta, não é uma 'frescura'
+            ou uma 'modinha', é o modo de garantir o sucesso da aplicação para todos os grupos de usuários</li>
+          <li>Traçar as prioridades e necessidades da persona, tem como saída a jornada do usuário na aplicação</li>
+          <li>Mais do que um simples fluxo, a jornada busca lidar com as emoções do cliente envolvidas nas etapas,
+            emoções felizes, demonstram partes agradáveis da jornada, emoções tristes por sua vez demonstram partes
+            desagradáveis da jornada</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>UX: O que é Design Thinking?</h1>
+      </section>
+
+      <section>
+        <h2>UX: O que é Design Thinking?</h2>
+        <ul>
+          <li>O Design Thinking, é uma técnica de desenvolvimento de produtos centrada nas pessoas (usuários) que serão
+            afetados por essa solução</li>
+          <li>O processo de Design Thinking, pouco tem a ver com linguagens de programação, frameworks, bibliotecas,
+            modelos de gerenciamento de projeto e outros tantos "detalhes" com os quais nos deparamos no cotidiano do
+            profissional/estudande de computação</li>
+          <li>É "apenas" im moodo de pensar para resolver o problema, aqui ao invés de pensar somente em "como resolver
+            o problema", devemos pensar em "Como o problema precisa ser resolvido"</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>UX: O que é Design Thinking?</h2>
+        <ul>
+          <li>Podemos pensar nisso com o seguinte exemplo:</li>
+          <ul>
+            <li>Um médico idealmente não deveria começar a consulta receitando um remédio, sem uma conversa inicial com
+              o paciente muitos detalhes e informações podem se perder, uma alergia, por exemplo, pode levar a
+              ineficácia do tratamento ou ainda a óbito</li>
+          </ul>
+          <li>O Procedimento correto que efetivamente pode resolver o problema é:</li>
+          <ul>
+            <li>Primeiro ele faz a chamada entrevista inicial com o paciente, onde ele através de técnicas tenta
+              entender qual o problema, recupera um breve histórico familiar, para tentar determinar se a causa é
+              genética ou se um exema complementar é necessário, entende o quadro do paciente</li>
+            <li>Depois pensa no tratamento, com base nos daods da entrevista verifica o medicamento mais adequado e
+              procede com o receituário</li>
+            <li>Após um curto período de tempo verifica se o tratamento funcionou e novamente verifica se o paciente se
+              sente melhor</li>
+          </ul>
+        </ul>
+      </section>
+
+      <section>
+        <h2>UX: O que é Design Thinking?</h2>
+        <ul>
+          <li>O Design Thinking, faz a mesma coisa separada em 5 Etapas:</li>
+          <ul>
+            <li>Empatia: Nesta etapa não tratamos soobre tecnologia, estamos tratando sobre pessoas, precisamos
+              conhece-las, Quem São, o que fazem, do que gostam, quais dificuldades possuem, medos objetivos, tudo. Aqui
+              são construídas as Personas </li>
+            <li>Definição: Nesta etapa tratamos do problema verdadeiro, não das vontades do cliente. É comum ouvirmos
+              frases como "Preciso de um aplicativo", mas ao estudar o cenário e compreender o problema real, percebmos
+              que o verdadeiro problema é que as pessoas esquecem o horário de suas consultas. Nesse caso um SMS ou uma
+              notificação resolveria o probelma na raiz, sem a necessiadade do desenvolvimento de um aplicativo;</li>
+          </ul>
+        </ul>
+      </section>
+
+      <section>
+        <h2>UX: O que é Design Thinking?</h2>
+        <ul>
+          <ul>
+            <li>Ideação: Aqui tratamos de tecnologias, conceitos metodologias, nesse ponto do proceso de desenvolvimento
+              não existem ideias ruins o objetivo é produzir ideias, <i>brainstorming</i> Mesmo;</li>
+            <li>Prototipação: Aqui começamos a criar algo simples, pode ser desde papel e caneta, até Figma ou prompts
+              de I.A, o objetivo aqui é validar a proposta de solução;</li>
+            <li>Teste: Aqui é a etapa onde validamos a solução apresentada, perceba que aqui não se encaixam perguntas
+              como "Gostou?", e sim perguntas como, "Conseguiu Conluir a tarefa?" ou mesmo "Como se sentiu durante a
+              execução da tarefa?"</li>
+          </ul>
+        </ul>
+      </section>
+
+      <section>
+        <h2>UX: O que é Design Thinking?</h2>
+        <ul>
+          <li>O Design Thinking é uma ferramenta poderosa para criação de aplicações centradas no usuário, mas ainda não
+            consegue cobrir todos os pontos necessários para uma aplicação suficientemente robusta. Pense no seguinte
+            cenário:</li>
+          <ul>
+            <li>Você seguiu todos os passos do design thinking;</li>
+            <li>Criou uma aplicação com código perfeito, sem bugs, escalável, portável;</li>
+            <li>Ela resolve o problema de forma efetiva, mas os usuários ainda não está satisfeitos ao usar;</li>
+          </ul>
+          <li>Como resolver? as Heurísticas podem nos ajudar</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Heurísticas</h1>
+      </section>
+
+      <section>
+        <h2>Heurísticas</h2>
+        <ul>
+          <li>As herísticas também não são nenhuma linguagem de programação, nenhum framework tampouco um conjunto de
+            regras;</li>
+          <li>São recomendações construídas a partir da observação de milhares de interfaces.</li>
+          <li>Elas existem por um simples fato, mesmo antes do sistema ser testado ou entregue aos usuários, podemos ver
+            mlihares de falha, ou mesmo simples pontos de melhoria, apenas analisando sua interface com o usuário.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Heurísticas</h2>
+        <ul>
+          <li>No final dos anos 1980 e começo de 1990, um pesquisador da área de Interação Humano Computador, área das
+            ciências da computação que estuda justamente a usabilidade e funcionalidade de sistemas ao nível de
+            interações com o usuário, percebeu que diversos sistemas reportavam os mesmos erros independente do problema
+            que se propunhamn a resolver;</li>
+          <li>Esse Pesquisador era Jakob Nielsen, e tendo esse cenário como base postulou as assim chamadas "10 -
+            Heurísticas de Nielsen";</li>
+          <li>As Heurísticas de Nielse, visam responder algumas perguntas para tentar garantir o mínimo da usabilidade
+            dos sistemas</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Heurísticas - Heurísticas de Nielsen</h2>
+        <ul>
+          <li>1. Visibilidade do estado: Aqui a pergunta é, "O sistema informa o que está acontecendo?", tem barras de
+            progresso para processos longs? Tem textos descritivos para o usuário saber onde ele está e o que está
+            acontecendo? O importante aqui é mostrar que o sistema não travou e que está ativo</li>
+          <li>2. Correspondência com o mundo real: Nessa etapa a preocupação é garantir a correta interação, por
+            exemplo, "O sistema fala a linguagem do usuário?", Numa situação de falha de login, não adianta
+            escrever:"Falha na autenticação OAuth", isso não diz absolutamente nada ao usuário médio, ao invés disso uma
+            frase muito mais assertiva seria:
+            "Usuário ou senha inválidos". Neste ponto, ainda é possível antecipar uma interação com suporte técnico,
+            adicionar um "Código" para falha, pode ajudar no diagnóstico por parte do suporte</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Heurísticas - Heurísticas de Nielsen</h2>
+        <ul>
+          <li>3. Controle e liberdade: Nesta etapa a preocupação é, "O usuário consegue desfazer?", isso é útil e
+            necessário em situações onde a operação é delicada e pode necessitar de revogação, mecanismos convencionados
+            aqui são: O famoso "Ctrl+Z", a Lixeira, ou ainda botões de Cancelar/Voltar </li>
+          <li>4. Consistência: Aqui a preocupação é com os padrões da ferramenta, as perguntas são "Todos os botões com
+            as mesmas funções tem as mesmas características?", Nesse ponto avaliamos tamanho dos botões, ícones, cores,
+            posições, textos e o vocabulário como um todo;</li>
+          <li>5. Evitar Erros: Melhor que poder desfazer erros é evitar que eles aconteçam, então a pergunta aqui é "É
+            uma operação delicada?", se a reposta for sim, insira uma ou até mais confirmações</li>
+          <li>6. Reconhecimento em vez de memória: Aqui o importante é causar conforto ao usuário, a pergunta a ser
+            respondida aqui é "Como traduzir a operação/tarefa em um ícone?", Ícones não são desenhados, são escritos,
+            todos os elementos empregados em sua construção tem um significado, podendo ser cultural, processual ou
+            técnico, como exemplo temos o ícone de "salvar", o disquete teve seu fim decretado no final da década de
+            1990, mas mesmo assim todo ícone de salvar ainda tem um disquete de 3 1/2 Polegadas </li>
+        </ul>
+      </section>
+
+      <section>
+        <ul>
+          <li>7. Flexibilidade: Aqui é o ponto onde respondemos perguntas do tipo, "O usuário prefere Mouse ou teclado?"
+            "O usuário é destro ou canhoto?", o sistema deve ser flexível a ponto dessas características não o impedirem
+            de extrair o máximo do sistema</li>
+          <li>8. Design minimalista: A pergunta a ser respondida aqui é: "Essa informação é mesmo necessária?", se a
+            reposta for não, remova-a. Tudo o que está na tela compete pela sua atenção</li>
+          <li>9. Ajudar na recuperação de erros: A pergunta aqui é: "Como reestabelecer o funcionamento mais
+            fácilmente?" o que encontra muito bem a heurística 2, a mensagem "Erro 404", não diz nada ao usuário médio,
+            portanto complementa-la pode tornar tudo mais simples, como "Erro: Arquivo Não Encontrado. Erro 404", torna
+            tudo mais claro </li>
+          <li>10. Ajuda e documentação: A pergunta aqui é "A documentação é necessária?", a resposta idealmente é não,
+            mas caseo seja necessário a docuemntação deve existir, deve ser acessível e objetiva. Não existe uma regra
+            para a criação da documentação, ela pode ser um texto, uma animação ou um vídeo, recomenda-se que ela seja
+            criada penando nas personas definidas para o uso da aplicação
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>OBRIGADO!</h1>
+        <p>Podem me encontrar aqui:</p>
+        <ul>
+          <li>gustavo.palma@unisal.edu.br</li>
+          <li>www.gustavopalma.com.br</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="../../../dist/reveal.js"></script>
+
+
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/zoom/zoom.js"></script>
+  <script>
+    const iframe = document.getElementById('terminal');
+    if (iframe != null) {
+      iframe.onload = () => {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        const style = doc.createElement('style');
+        style.innerHTML = `
+      .xterm {
+        font-size: 20px !important;
+        line-height: 1.2 !important;
+      }
+    `;
+        doc.head.appendChild(style);
+      };
+    }
+  </script>
+  <script>
+    Reveal.on('ready', event => {
+      const headerTemplate = document.getElementById('header-template');
+      const footerTemplate = document.getElementById('footer-template');
+
+      document.querySelectorAll('.slide-background').forEach(backgroundDiv => {
+        if (headerTemplate) {
+          backgroundDiv.appendChild(headerTemplate.cloneNode(true));
+        }
+        if (footerTemplate) {
+          backgroundDiv.appendChild(footerTemplate.cloneNode(true));
+        }
+      });
+
+      const nomeDisciplina = "UI & UX";
+      const assuntoAula = "UI & UX - Aula Inicial"
+      const aulaNum = '1';
+      const currentDate = new Date();
+
+      // Get the full four-digit year
+      const currentYear = " " + currentDate.getFullYear(); // e.g., 2026
+
+      // Find the HTML element by its ID and set its text content to the current year
+      document.getElementById('year-placeholder').textContent = "\  " + currentYear;
+      var elems = document.getElementsByClassName('lecture_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = nomeDisciplina;
+      }
+      document.title = nomeDisciplina;
+      document.getElementById('aula_num_placeholder').textContent = aulaNum
+      elems = document.getElementsByClassName('lecture_subject_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = assuntoAula;
+      }
+      createWorldMarketShare();
+      createMarketShare();
+    });
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      center: true,
+      width: "100%",
+      height: "100%",
+      margin: 0,
+      controls: true,
+      controlsBackArrows: 'faded',
+      progress: true,
+      plugins: [RevealHighlight, RevealZoom],
+    });
+  </script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+
+</html>
