@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title><span class="lecture_placeholder"></title>
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
+  <link rel="stylesheet" href="css/mine.css">
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Cabeçalho -->
+  <div id="header-template">
+    <a href="https://unisal.br/">
+      <img src="img/logo_unisal.png" alt="Logo">
+    </a>
+    <h1>Aula &nbsp; <span id="aula_num_placeholder"></span> &nbsp; - &nbsp; <span class="lecture_placeholder"></span>
+      &nbsp; - &nbsp; <span class="lecture_subject_placeholder"></span></h1>
+  </div>
+
+  <!-- Rodapé -->
+  <div id="footer-template">
+    UNISAL - São José, Campinas - &nbsp; <span id="year-placeholder"></span>
+  </div>
+
+  <!-- Slides -->
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <a href="https://unisal.br/">
+          <img src="img/logo_unisal.png" alt="logo unisal"
+            style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+        </a>
+        <h2><span class="lecture_placeholder"></h2>
+        <h3><span class="lecture_subject_placeholder"></span></h3>
+        <p>
+          <small>Prof. Me. Gustavo Ferreira Palma</small>
+        </p>
+      </section>
+
+      <section>
+        <h2>Pauta</h2>
+        <ul>
+          <li>Da máquina programável às interfaces gráficas</li>
+          <li>CLI, GUI e WIMP</li>
+          <li>Windows 1.x, 3.x e 95</li>
+          <li>Desktop Environments no Linux</li>
+          <li>Design visual, temas e Design Systems</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Interface e Usabilidade</h1>
+      </section>
+
+      <section>
+        <h2>Interface e Usabilidade</h2>
+        <ul>
+          <li>A interface é o meio de interação entre usuário e sistema. Além disso pode ser o meio de comunicação entre
+            sistemas ou ainda um meio físico para a comunicação de doferentes sistemas eletroeletrônicos.</li>
+          <li>Através das interfaces, o usuário expressa intenções e recebe respostas.</li>
+          <li>Diferentes interfaces podem oferecer acesso às mesmas funcionalidades.</li>
+          <li>O projeto deve considerar usuário, tarefa e contexto.</li>
+          <li>Interface bonita não significa necessariamente interface fácil de usar.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Interface e Usabilidade : Como damos instruções a uma máquina?</h2>
+        <ul>
+          <li>Uma interface não precisa ser uma tela.</li>
+          <li>Ao longo da história, pessoas utilizaram mecanismos físicos, linguagens, terminais e elementos gráficos
+            para comunicar intenções às máquinas.</li>
+          <li>A pergunta fundamental permanece: como a pessoa comunica sua intenção e como a máquina comunica seu
+            estado?</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Interface e Usabilidade: Tear de Jacquard — início do século XIX</h2>
+        <ul>
+          <li>Cartões perfurados controlavam quais fios seriam elevados em cada linha do tecido.</li>
+          <li>Alterar os cartões permitia alterar o padrão sem reconstruir a máquina.</li>
+          <li>O comportamento da máquina passa a ser determinado por informação fornecida externamente.</li>
+        </ul>
+        <div class="imageRow" style="height: 20%; margin-top: 100px;">
+          <div class="imgContainer" style="width:49%;">
+
+            <img src="img/tear_jacquard.jpg">
+            <p>Tear de Jacquard</p>
+          </div>
+          <div class="imgContainer" style="width:40%; ">
+
+            <img src="img/cartao_perfurado.jpg">
+            <p>Cartões perfurados</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Interface e Usabilidade: Tear de Jacquard — início do século XIX</h2>
+        <div class="imageRow" style="height: 70%; margin-top: 100px;">
+          <div class="imgContainer" style="width:49%;">
+
+            <img src="img/tear_jacquard.jpg">
+          </div>
+          <div class="imgContainer" style="width:40%; ">
+
+            <img src="img/cartao_perfurado.jpg">
+            
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Interface e Usabilidade: A máquina que podia ser programada</h2>
+        <ul>
+          <li>Cartões, carregavam as instruções, às máquinas processavam, tinhámos o resultado</li>
+          <li>O usuário não modifica a estrutura da máquina: modifica as instruções fornecidas a ela.</li>
+          <li>Charles Babbage reconheceu o potencial dos cartões perfurados para controlar máquinas de computação.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Interface e Usabilidade: Cartões perfurados e processamento de dados</h2>
+        <ul>
+          <li>No final do século XIX, Herman Hollerith utilizou cartões perfurados para processamento de dados do censo.
+          </li>
+          <li>Posteriormente, cartões tornaram-se uma forma importante de entrada de programas e dados.</li>
+          <li>Interface ≠ interface gráfica.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Interface e Usabilidade: Batch Processing (processamento em lotes)</h2>
+        <ul>
+          <li>Programar (pode ser em FORTRAN), perfurar os cartões, carregar os programas/dados, aguardar o processametno, receber resultado.</li>
+          <li>A interação não era imediata.</li>
+          <li>Entre a entrada e a saída, o intervalo podia variar de minutos a dias.</li>
+          <li>Encontrar um erro significava iniciar novamente parte do processo.</li>
+        </ul>
+        <img src="img/cartao_ibm.png" >
+      </section>
+
+      <section>
+        <h2>Interface e Usabilidade: Apollo Guidance Computer</h2>
+        <ul>
+          <li>Na década de 1960, computadores passaram a desempenhar funções críticas de navegação, orientação e
+            controle.</li>
+          <li>Na Apollo, o computador precisava ser compacto, confiável e utilizável dentro de uma espaçonave.</li>
+          <li>A interface torna-se parte de um sistema crítico.</li>
+        </ul>
+        <img src="img/agc_dsky.jpg" style="width: 40%;" >
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Software literalmente costurado</h2>
+        <ul>
+          <li>Grande parte do software do Apollo Guidance Computer era armazenada em Core Rope Memory.</li>
+          <li>Fios eram tecidos através ou ao redor de núcleos magnéticos para codificar informação.</li>
+          <li>Era uma memória somente de leitura compacta e robusta para a época.</li>
+        </ul>
+        <img src="img/mem_costurada.jpeg" style="width: 25%;">
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: DSKY — Display and Keyboard</h2>
+        <ul>
+          <li>A tripulação interagia com o computador por meio do DSKY.</li>
+          <li>A interação utilizava códigos numéricos organizados em VERB + NOUN.</li>
+          <li>VERB: ação desejada.</li>
+          <li>NOUN: objeto ou dado sobre o qual a ação seria realizada.</li>
+        </ul>
+        <img src="img/dsky.jpg" style="width: 30%;">
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: A interface como linguagem</h2>
+        <ul>
+          <li>Usuário → Linguagem de interação → Interface → Sistema</li>
+          <li>O usuário precisa aprender quais operações existem e como expressá-las.</li>
+          <li>Ainda estamos longe da GUI moderna, mas já estamos claramente falando de Interação Humano–Computador.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Terminais interativos</h2>
+        <ul>
+          <li>A relação muda de Entrada → Espera → Resultado para um diálogo contínuo.</li>
+          <li>Entrada → Resposta → Entrada → Resposta</li>
+          <li>O feedback passa a ocorrer durante a utilização do sistema.</li>
+          <li>Interatividade transforma a experiência de uso.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: CLI — Command-Line Interface</h2>
+        <ul>
+          <li>A interação ocorre principalmente por comandos textuais.</li>
+          <li>Comandos possuem sintaxe e parâmetros específicos.</li>
+          <li>Uma interface pequena pode oferecer enorme quantidade de funcionalidades.</li>
+          <li>É extremamente eficiente para usuários experientes, mas exige aprendizado da linguagem do sistema.</li>
+        </ul>
+        <pre><code>C:\&gt; DIR
+C:\&gt; CD DOCUMENTOS
+C:\DOCUMENTOS&gt; COPY TRABALHO.TXT A:</code></pre>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: CLI é uma interface ruim?</h2>
+        <ul>
+          <li>Não necessariamente.</li>
+          <li>Usabilidade depende do usuário, objetivo, tarefa, ambiente e conhecimento prévio.</li>
+          <li>Para determinadas tarefas, uma CLI pode ser mais rápida e eficiente que uma GUI.</li>
+          <li>Usabilidade não é uma propriedade absoluta da interface.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Recordar × Reconhecer</h2>
+        <ul>
+          <li>Na CLI, frequentemente precisamos recordar comandos e sintaxe.</li>
+          <li>Na GUI, o sistema pode apresentar possibilidades visualmente.</li>
+          <li>Reconhecer geralmente exige menor esforço cognitivo do que recordar.</li>
+          <li>Menor esforço cognitivo não significa maior eficiência em todas as situações.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Xerox Alto — 1973</h2>
+        <ul>
+          <li>Display bitmap, teclado, mouse, rede e uma interface visual no mesmo sistema.</li>
+          <li>Janelas, menus e manipulação direta ajudaram a mudar a relação entre pessoas e computadores.</li>
+          <li>O foco começa a migrar de aprender detalhes da máquina para utilizar a máquina como ferramenta.</li>
+        </ul>
+        <img src="img/xerox_alto.jpg" style="width: 20%;">
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Manipulação Direta</h2>
+        <ul>
+          <li>Objetos tornam-se visíveis e manipuláveis.</li>
+          <li>Selecionar, arrastar, soltar.</li>
+          <li>Ações incrementais e feedback imediato reduzem a distância entre intenção e resultado.</li>
+          <li>O computador começa a adaptar sua linguagem ao usuário.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Metáforas de Interface</h2>
+        <ul>
+          <li>Desktop = mesa de trabalho</li>
+          <li>Folder = pasta</li>
+          <li>Document = documento</li>
+          <li>Trash/Recycle Bin = lixeira</li>
+          <li>Clipboard = área de transferência</li>
+          <li>Conhecimentos do mundo físico ajudam a compreender conceitos computacionais abstratos.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: GUI — Graphical User Interface</h2>
+        <ul>
+          <li>Elementos gráficos representam informações, objetos e ações.</li>
+          <li>Janelas, ícones, botões, menus, caixas de diálogo, ponteiros e barras de ferramentas.</li>
+          <li>A GUI favorece descoberta, reconhecimento e manipulação direta.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: WIMP</h2>
+        <ul>
+          <li>Windows — Janelas: organizam aplicações e documentos.</li>
+          <li>Icons — Ícones: representam objetos, aplicações e ações.</li>
+          <li>Menus — Menus: apresentam ações disponíveis.</li>
+          <li>Pointer — Ponteiro: permite selecionar e manipular elementos.</li>
+          <li>WIMP tornou-se uma linguagem fundamental das interfaces desktop.</li>
+        </ul>
+        <img src="img/apple_lisa.webp"  style="width: 30%;">
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Apple Lisa e Macintosh</h2>
+        <ul>
+          <li>Lisa (1983) e Macintosh (1984) ajudaram a levar interfaces gráficas ao usuário de computadores pessoais.
+          </li>
+          <li>Desktop, arquivos, pastas, lixeira, menus, mouse e janelas passam a formar uma linguagem visual
+            relativamente consistente.</li>
+          <li>A GUI deixa o laboratório e entra no mercado.</li>
+        </ul>
+        <img src="img/mac.webp" style="width: 35%;">
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Microsoft Windows 1.01 — 1985</h2>
+        <ul>
+          <li>Ambiente gráfico executado sobre o MS-DOS.</li>
+          <li>Mouse, janelas, menus, aplicações gráficas, barras de rolagem e caixas de diálogo.</li>
+          <li>Muitas convenções atuais ainda estavam sendo estabelecidas.</li>
+          <li>DEMONSTRAÇÃO: usar o sistema real na VM.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Windows 1.x — Tiled Windows</h2>
+        <ul>
+          <li>As janelas normais são organizadas lado a lado, sem livre sobreposição.</li>
+          <li>Isso evidencia que convenções hoje consideradas óbvias foram experimentadas e refinadas.</li>
+          <li>Pergunta para a turma: quais ações são evidentes para um usuário atual?</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Experimento — Windows 1.01</h2>
+        <ul>
+          <li>Como iniciar uma aplicação?</li>
+          <li>Como identificar a aplicação ativa?</li>
+          <li>Como alternar entre aplicações?</li>
+          <li>Como redimensionar uma janela?</li>
+          <li>Como fechar uma aplicação?</li>
+          <li>O que o sistema comunica bem? O que exige aprendizado?</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Experimento Windows 3.1 / 3.11</h2>
+        <ul>
+          <li>Program Manager e File Manager.</li>
+          <li>Janelas sobrepostas e ícones mais elaborados.</li>
+          <li>Maior utilização de cores e organização visual.</li>
+          <li>Maior consistência entre aplicações.</li>
+          <li>DEMONSTRAÇÃO: repetir as mesmas tarefas feitas no Windows 1.01.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Consistência</h2>
+        <ul>
+          <li>Cada aplicação deve inventar sua própria forma de interação?</li>
+          <li>Padrões permitem transferir conhecimento entre aplicações.</li>
+          <li>"File, Open, File, Save File, Exit".</li>
+          <li>Consistência reduz reaprendizado e cria expectativas.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Consistência cria expectativas</h2>
+        <ul>
+          <li>Se parece um botão, esperamos que possa ser pressionado.</li>
+          <li>Se vemos uma lupa, esperamos uma função de busca.</li>
+          <li>Se um texto está sublinhado na Web, esperamos um link.</li>
+          <li>Interfaces consistentes aproveitam conhecimentos adquiridos anteriormente.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Experimento Windows 95 — 1995</h2>
+        <ul>
+          <li>Menu Iniciar, barra de tarefas, área de trabalho e Explorer.</li>
+          <li>Aplicações abertas tornam-se mais visíveis na barra de tarefas.</li>
+          <li>Minimizar, maximizar e fechar consolidam-se como convenções familiares.</li>
+          <li>DEMONSTRAÇÃO: um usuário atual ainda reconhece essa linguagem de interação?</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Um botão chamado Iniciar</h2>
+        <ul>
+          <li>Um ponto explícito para começar.</li>
+          <li>Executar programas, localizar documentos, alterar configurações, obter ajuda e desligar o computador.</li>
+          <li>Um único elemento oferece um ponto de entrada claramente identificável para o sistema.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Visibilidade do estado do sistema</h2>
+        <ul>
+          <li>A barra de tarefas ajuda a responder: “O que está aberto neste momento?”</li>
+          <li>O sistema deve manter o usuário informado sobre seu estado.</li>
+          <li>Feedback e visibilidade reduzem incerteza durante a interação.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Quarenta anos de evolução</h2>
+        <ul>
+          <li>Windows 1.x, Windows 3.x, Windows 95, interfaces atuais</li>
+          <li>O que mudou?</li>
+          <li>O que permaneceu?</li>
+          <li>Por que alguém que nunca usou Windows 95 ainda consegue reconhecer grande parte de sua interface?</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Linux tem uma interface gráfica?</h2>
+        <ul>
+          <li>Não existe uma única resposta.</li>
+          <li>Sistemas Linux podem utilizar diferentes Desktop Environments.</li>
+          <li>O sistema operacional e a experiência gráfica não são exatamente a mesma coisa.</li>
+          <li>Mesmo sistema, diferentes experiências de interação.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Desktop Environments</h2>
+        <ul>
+          <li>GNOME — foco em atividades, simplicidade e redução de elementos visuais.</li>
+          <li>KDE Plasma — grande quantidade de recursos e personalização.</li>
+          <li>XFCE — abordagem tradicional, leve e relativamente simples.</li>
+          <li>Outros exemplos: Cinnamon, MATE e LXQt.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Do funcional para o visual</h2>
+        <ul>
+          <li>Duas interfaces podem oferecer exatamente as mesmas funcionalidades e produzir experiências diferentes.
+          </li>
+          <li>Design visual ajuda a comunicar importância, agrupamento, ação e estado.</li>
+          <li>Design visual não é apenas decoração.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Elementos do Design Visual</h2>
+        <ul>
+          <li>Cor</li>
+          <li>Tipografia</li>
+          <li>Tamanho</li>
+          <li>Espaçamento</li>
+          <li>Alinhamento</li>
+          <li>Forma</li>
+          <li>Contraste</li>
+          <li>Hierarquia</li>
+          <li>Agrupamento</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Hierarquia Visual</h2>
+        <ul>
+          <li>Nem todos os elementos são percebidos com a mesma importância.</li>
+          <li>Tamanho, peso, cor, contraste, posição e espaçamento direcionam a atenção.</li>
+          <li>A hierarquia visual deve acompanhar a importância e o significado das ações.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Espaço também é informação</h2>
+        <ul>
+          <li>Espaços vazios podem indicar separação, agrupamento, hierarquia e mudança de contexto.</li>
+          <li>Elementos próximos tendem a ser percebidos como relacionados.</li>
+          <li>Elementos distantes tendem a ser percebidos como grupos diferentes.</li>
+          <li>Gancho: princípios de Gestalt.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Cor não é apenas decoração</h2>
+        <ul>
+          <li>Pode criar identidade, estabelecer hierarquia, destacar ações, comunicar estados e fornecer feedback.</li>
+          <li>Cores semânticas são comuns para erro, atenção e sucesso.</li>
+          <li>Nunca depender exclusivamente da cor para transmitir uma informação.</li>
+          <li>Gancho: acessibilidade.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Paleta e Contraste</h2>
+        <ul>
+          <li>Uma aplicação utiliza um conjunto limitado e planejado de cores.</li>
+          <li>Cores principais, secundárias, superfícies, texto e cores semânticas.</li>
+          <li>Contraste adequado é essencial para legibilidade, hierarquia e acessibilidade.</li>
+          <li>O objetivo não é usar muitas cores, mas usá-las consistentemente.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Tipografia também é interface</h2>
+        <ul>
+          <li>Tipografia influencia legibilidade, hierarquia, identidade e densidade de informação.</li>
+          <li>Título, subtítulo, corpo e legenda formam níveis de informação.</li>
+          <li>A hierarquia pode ser construída variando tamanho, peso, espaçamento e cor.</li>
+          <li>Consistência costuma ser mais importante que variedade.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Temas e Componentes</h2>
+        <ul>
+          <li>Um tema reúne decisões compartilhadas de cor, tipografia, formas e aparência.</li>
+          <li>Light/Dark não é simplesmente inverter preto e branco.</li>
+          <li>Componentes reutilizáveis possuem aparência, comportamento e estados.</li>
+          <li>Normal, hover, focused, pressed e disabled comunicam feedback.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Interface e Usabilidade: Design Systems</h2>
+        <ul>
+          <li>Cores + Tipografia + Espaçamento + Formas + Componentes + Comportamentos.</li>
+          <li>Um Design System torna decisões de design consistentes e reutilizáveis.</li>
+          <li>O objetivo não é apenas fazer interfaces parecidas: é compartilhar uma linguagem de produto.</li>
+          <li>Essa ideia aparece diretamente em frameworks modernos e no Material Design.</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h1>OBRIGADO!</h1>
+        <p>Podem me encontrar aqui:</p>
+        <ul>
+          <li>gustavo.palma@unisal.edu.br</li>
+          <li>www.gustavopalma.com.br</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="../../../dist/reveal.js"></script>
+
+
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/zoom/zoom.js"></script>
+  <script>
+    const iframe = document.getElementById('terminal');
+    if (iframe != null) {
+      iframe.onload = () => {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        const style = doc.createElement('style');
+        style.innerHTML = `
+      .xterm {
+        font-size: 20px !important;
+        line-height: 1.2 !important;
+      }
+    `;
+        doc.head.appendChild(style);
+      };
+    }
+  </script>
+  <script>
+    Reveal.on('ready', event => {
+      const headerTemplate = document.getElementById('header-template');
+      const footerTemplate = document.getElementById('footer-template');
+
+      document.querySelectorAll('.slide-background').forEach(backgroundDiv => {
+        if (headerTemplate) {
+          backgroundDiv.appendChild(headerTemplate.cloneNode(true));
+        }
+        if (footerTemplate) {
+          backgroundDiv.appendChild(footerTemplate.cloneNode(true));
+        }
+      });
+
+      const nomeDisciplina = "UI & UX";
+      const assuntoAula = "Da máquina ao usuário: evolução das interfaces"
+      const aulaNum = '2';
+      const currentDate = new Date();
+
+      // Get the full four-digit year
+      const currentYear = " " + currentDate.getFullYear(); // e.g., 2026
+
+      // Find the HTML element by its ID and set its text content to the current year
+      document.getElementById('year-placeholder').textContent = "\  " + currentYear;
+      var elems = document.getElementsByClassName('lecture_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = nomeDisciplina;
+      }
+      document.title = nomeDisciplina;
+      document.getElementById('aula_num_placeholder').textContent = aulaNum
+      elems = document.getElementsByClassName('lecture_subject_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = assuntoAula;
+      }
+      createWorldMarketShare();
+      createMarketShare();
+    });
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      center: true,
+      width: "100%",
+      height: "100%",
+      margin: 0,
+      controls: true,
+      controlsBackArrows: 'faded',
+      progress: true,
+      plugins: [RevealHighlight, RevealZoom],
+    });
+  </script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+
+</html>
