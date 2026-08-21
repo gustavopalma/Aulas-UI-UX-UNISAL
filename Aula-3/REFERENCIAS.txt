@@ -1,0 +1,8 @@
+Referências principais para revisão/adição de imagens:
+- Material Design 3: https://m3.material.io/
+- Material 3 no Jetpack Compose: https://developer.android.com/develop/ui/compose/designsystems/material3
+- Compose Material 3 releases: https://developer.android.com/jetpack/androidx/releases/compose-material3
+- Codelab de temas Material 3: https://developer.android.com/codelabs/jetpack-compose-theming
+- Material You / Dynamic Color (AOSP): https://source.android.com/docs/core/display/material
+
+Observação: o deck foi deixado predominantemente textual para revisão rápida. Sugestões de imagens: componentes M3, esquema de cores, escala tipográfica, Material You e comparação de componentes.

@@ -1,0 +1,1101 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title><span class="lecture_placeholder"></title>
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
+  <link rel="stylesheet" href="css/mine.css">
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  <script type="module" src="js/material.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Cabeçalho -->
+  <div id="header-template">
+    <a href="https://unisal.br/">
+      <img src="img/logo_unisal.png" alt="Logo">
+    </a>
+    <h1>Aula &nbsp; <span id="aula_num_placeholder"></span> &nbsp; - &nbsp; <span class="lecture_placeholder"></span>
+      &nbsp; - &nbsp; <span class="lecture_subject_placeholder"></span></h1>
+  </div>
+
+  <!-- Rodapé -->
+  <div id="footer-template">
+    UNISAL - São José, Campinas - &nbsp; <span id="year-placeholder"></span>
+  </div>
+
+  <!-- Slides -->
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <a href="https://unisal.br/">
+          <img src="img/logo_unisal.png" alt="logo unisal"
+            style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+        </a>
+        <h2><span class="lecture_placeholder"></span></h2>
+        <h3><span class="lecture_subject_placeholder"></span></h3>
+        <p><small>Prof. Me. Gustavo Ferreira Palma</small></p>
+      </section>
+
+      <section>
+        <h2>Pauta</h2>
+        <ul>
+          <li>Design Systems</li>
+          <li>Material Design: origem e evolução</li>
+          <li>Material Design 3 e Material You</li>
+          <li>Cores, tipografia, formas, superfícies e movimento</li>
+          <li>Componentes e estados</li>
+          <li>Material 3 no Jetpack Compose</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Design Systems</h1>
+      </section>
+      <section>
+        <h2>Design Systems: Da aula anterior para esta</h2>
+        <ul>
+          <li>Vimos como convenções de interface foram construídas e consolidadas ao longo do tempo.</li>
+          <li>Interfaces modernas reutilizam padrões, componentes e linguagens visuais.</li>
+          <li>Como manter uma experiência consistente em dezenas ou centenas de telas?</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Design Systems: O problema da consistência</h2>
+        <ul>
+          <li>Se cada tela escolher livremente cores, fontes, botões e espaçamentos, o usuário precisa reaprender
+            padrões.</li>
+          <li>O desenvolvimento também se torna mais caro e difícil de manter.</li>
+          <li>Precisamos transformar decisões de design em regras reutilizáveis.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Design Systems: Conceito</h2>
+        <ul>
+          <li>Um Design System é um conjunto organizado de princípios, padrões e componentes reutilizáveis.</li>
+          <li>Cria uma linguagem compartilhada entre design e desenvolvimento.</li>
+          <li>Pode definir cores, tipografia, formas, espaçamentos, componentes, estados, comportamento e
+            acessibilidade.</li>
+          <li>Seu objetivo não é apenas deixar telas parecidas: é produzir consistência.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Design Systems: Biblioteca de componentes?</h2>
+        <ul>
+          <li>Uma biblioteca de componentes fornece peças reutilizáveis.</li>
+          <li>Um Design System também define como e por que essas peças devem ser utilizadas.</li>
+          <li>Componente + regras + princípios + tokens + comportamento + documentação.</li>
+          <li>A biblioteca pode ser uma implementação do Design System.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Design Systems: Design Tokens</h2>
+        <ul>
+          <li>Decisões visuais podem ser representadas como valores reutilizáveis.</li>
+          <li>Exemplos: cor primária, cor de superfície, tamanho de fonte, raio de borda e espaçamento.</li>
+          <li>Em vez de repetir valores arbitrários, utilizamos papéis semânticos.</li>
+          <li>Isso facilita consistência, manutenção e criação de temas.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Material Design</h1>
+      </section>
+      <section>
+        <h2>Material Design: O Design System do Google</h2>
+        <ul>
+          <li>O Material Design é um Design System criado pelo Google.</li>
+          <li>É fortemente associado ao Android, mas seus princípios não são exclusivos da plataforma.</li>
+          <li>Não define apenas a aparência de componentes: reúne fundamentos visuais, comportamento, movimento e
+            acessibilidade.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material Design: 2014</h2>
+        <ul>
+          <li>Apresentado pelo Google em 2014.</li>
+          <li>A proposta original utilizava a metáfora de materiais e superfícies para comunicar hierarquia e interação.
+          </li>
+          <li>Movimento, elevação, sombras, cores e componentes faziam parte de uma linguagem coerente.</li>
+          <li>O sistema passou a orientar interfaces Android e produtos Google.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material Design: Evolução</h2>
+        <ul>
+          <li>Material Design (2014): linguagem visual inicial.</li>
+          <li>Material Theming / Material 2: maior possibilidade de identidade e personalização.</li>
+          <li>Material Design 3: novo sistema de cores, componentes e adaptação.</li>
+          <li>Material You: personalização da experiência a partir do usuário e do dispositivo.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material Design 3</h2>
+        <ul>
+          <li>Material Design 3, Material 3 e M3 referem-se à geração atual do sistema.</li>
+          <li>No Android moderno, possui integração direta com o Jetpack Compose.</li>
+          <li>Trabalha com temas, componentes, adaptação, acessibilidade e personalização.</li>
+          <li>No Compose, os componentes estão no pacote <code>androidx.compose.material3</code>.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material You</h2>
+        <ul>
+          <li>Material You amplia a personalização do Material Design.</li>
+          <li>No Android compatível, o esquema visual pode ser derivado das preferências visuais do sistema.</li>
+          <li>A interface pode compartilhar uma linguagem visual com o próprio dispositivo.</li>
+          <li>Personalização não significa abandonar consistência.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material You: Dynamic Color</h2>
+        <ul>
+          <li>A partir de uma cor de origem, o sistema pode produzir paletas tonais.</li>
+          <li>Essas cores são associadas a papéis semânticos da interface.</li>
+          <li>No Android, Dynamic Color é suportado a partir do Android 12.</li>
+          <li>Um aplicativo pode mudar de aparência preservando estrutura, contraste e hierarquia.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Fundamentos do Material 3</h1>
+      </section>
+      <section>
+        <h2>Material 3: Tema</h2>
+        <ul>
+          <li>Um tema organiza decisões visuais compartilhadas por toda a aplicação.</li>
+          <li><b>Color Scheme</b>: esquema e papéis de cores.</li>
+          <li><b>Typography</b>: escala e papéis tipográficos.</li>
+          <li><b>Shapes</b>: linguagem de formas dos componentes.</li>
+          <li>Componentes Material consomem essas decisões de forma consistente.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material 3: Color Scheme</h2>
+        <ul>
+          <li>No Material 3 não pensamos apenas em valores de cores isolados.</li>
+          <li>As cores recebem papéis dentro da interface.</li>
+          <li>Exemplos: <code>primary</code>, <code>secondary</code>, <code>tertiary</code>, <code>surface</code> e
+            <code>error</code>.
+          </li>
+          <li>O papel da cor é mais importante que seu valor hexadecimal específico.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material 3: Primary, Secondary e Tertiary</h2>
+        <ul>
+          <li><b>Primary</b>: elementos e ações de maior destaque.</li>
+          <li><b>Secondary</b>: elementos de apoio e menor ênfase.</li>
+          <li><b>Tertiary</b>: contraste e expressão adicional.</li>
+          <li>O tema pode trocar a cor mantendo o mesmo significado semântico.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material 3: Container e On-Color</h2>
+        <ul>
+          <li><code>primary</code> representa uma cor de destaque.</li>
+          <li><code>onPrimary</code> representa conteúdo colocado sobre <code>primary</code>.</li>
+          <li><code>primaryContainer</code> oferece uma superfície tonal relacionada.</li>
+          <li><code>onPrimaryContainer</code> representa conteúdo sobre esse container.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material 3: Cores semânticas</h2>
+        <ul>
+          <li>Nem toda cor representa identidade de marca.</li>
+          <li><code>error</code> comunica erro ou contexto destrutivo.</li>
+          <li><code>surface</code> representa superfícies de conteúdo.</li>
+          <li><code>outline</code> pode representar limites e componentes contornados.</li>
+          <li>Cor é informação, não apenas decoração.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material 3: Tema Claro e Tema Escuro</h2>
+        <ul>
+          <li>Light e Dark Theme não são simplesmente inversões de branco e preto.</li>
+          <li>Cada esquema precisa preservar contraste, hierarquia e significado.</li>
+          <li>Papéis semânticos permitem mapear cores adequadamente nos dois temas.</li>
+          <li>O componente permanece o mesmo; o esquema visual pode mudar.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material 3: Cor e Acessibilidade</h2>
+        <ul>
+          <li>Informações importantes não devem depender exclusivamente da cor.</li>
+          <li>Texto e elementos interativos precisam possuir contraste adequado.</li>
+          <li>Design visual e acessibilidade devem ser considerados juntos.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material 3: Tipografia</h2>
+        <ul>
+          <li>A tipografia organiza informação e estabelece hierarquia visual.</li>
+          <li><b>Display</b>: grande destaque.</li>
+          <li><b>Headline</b>: títulos de seções.</li>
+          <li><b>Title</b>: títulos de componentes e conteúdos.</li>
+          <li><b>Body</b>: texto principal.</li>
+          <li><b>Label</b>: controles e elementos menores.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material 3: Hierarquia Tipográfica</h2>
+        <ul>
+          <li>O usuário frequentemente percebe a estrutura antes mesmo de ler o conteúdo.</li>
+          <li>Tamanho, peso, altura de linha e espaçamento ajudam a diferenciar níveis.</li>
+          <li>Uma escala consistente é mais importante do que utilizar muitas fontes.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material 3: Shapes</h2>
+        <ul>
+          <li>Formas também fazem parte da identidade e da hierarquia visual.</li>
+          <li>Botões, cards, dialogs e outros componentes compartilham regras de forma.</li>
+          <li>Centralizar essas regras no tema facilita modificar a linguagem visual do produto.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material 3: Superfícies e Elevação</h2>
+        <ul>
+          <li>Superfícies e containers agrupam conteúdo e separam contextos.</li>
+          <li>Cor tonal, contorno e elevação ajudam a comunicar relações espaciais.</li>
+          <li>Elevação comunica hierarquia e não deve ser utilizada apenas como decoração.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material 3: Layout e Espaçamento</h2>
+        <ul>
+          <li>Margens, padding, alinhamento e agrupamento estabelecem relações visuais.</li>
+          <li>Elementos próximos tendem a ser percebidos como relacionados.</li>
+          <li>O layout precisa se adaptar a diferentes tamanhos e formatos de tela.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material 3: Design Adaptável</h2>
+        <ul>
+          <li>Aplicações Android também podem executar em tablets, dobráveis e telas grandes.</li>
+          <li>O mesmo conteúdo pode utilizar diferentes estratégias de navegação e distribuição.</li>
+          <li>Adaptar não significa simplesmente aumentar todos os componentes.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material 3: Motion</h2>
+        <ul>
+          <li>Movimento também comunica informação.</li>
+          <li>Animações podem indicar origem, destino, mudança de estado e continuidade.</li>
+          <li>Movimento deve apoiar a compreensão da interface.</li>
+          <li>Animação sem propósito pode aumentar distração e tempo de interação.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Componentes</h1>
+      </section>
+      <section>
+        <h2>Material 3: Componentes</h2>
+        <ul>
+          <li>Um componente é uma unidade reutilizável de interface.</li>
+          <li>Possui aparência, comportamento, estados e regras de utilização.</li>
+          <li>Exemplos: Button, Card, TextField, Checkbox, Switch, Dialog, Snackbar, NavigationBar e AppBar.</li>
+          <li>O desenvolvedor não precisa reinventar padrões recorrentes.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material 3: Buttons</h2>
+        <ul>
+          <li><b>Filled Button</b>: ação importante.</li>
+          <li><b>Filled Tonal Button</b>: destaque intermediário.</li>
+          <li><b>Outlined Button</b>: menor ênfase.</li>
+          <li><b>Text Button</b>: ação contextual ou de baixa ênfase.</li>
+          <li>A hierarquia visual deve acompanhar a importância das ações.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Material Design - Buttons</h2>
+
+        <div class="material-demo">
+
+          <md-filled-button>
+            Salvar
+          </md-filled-button>
+
+          <md-filled-tonal-button>
+            Continuar
+          </md-filled-tonal-button>
+
+          <md-outlined-button>
+            Cancelar
+          </md-outlined-button>
+
+          <md-text-button>
+            Mais informações
+          </md-text-button>
+
+        </div>
+      </section>
+
+      <section>
+        <h2>Material Design - Tipos de Buttons</h2>
+
+        <div class="material-demo">
+
+          <md-filled-button>
+            Filled
+          </md-filled-button>
+
+          <md-filled-tonal-button>
+            Filled Tonal
+          </md-filled-tonal-button>
+
+          <md-outlined-button>
+            Outlined
+          </md-outlined-button>
+
+          <md-text-button>
+            Text
+          </md-text-button>
+
+        </div>
+
+        <p style="margin-top: 70px; text-align:center;">
+          Diferentes níveis de ênfase para diferentes ações.
+        </p>
+      </section>
+
+      <section>
+        <h2>Material 3: Floating Action Button</h2>
+        <ul>
+          <li>O FAB destaca uma ação importante no contexto da tela.</li>
+          <li>Pode aparecer em diferentes tamanhos e também em versão estendida.</li>
+          <li>Não é simplesmente um botão redondo colocado no canto da tela.</li>
+          <li>Seu destaque deve corresponder à importância real da ação.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Material Design - FAB</h2>
+
+        <div class="material-demo">
+
+          <div style="text-align:center;">
+
+            <md-fab aria-label="Adicionar">
+              <md-icon slot="icon">add</md-icon>
+            </md-fab>
+
+            <p class="material-label">
+              FAB
+            </p>
+
+          </div>
+
+          <div style="text-align:center;">
+
+            <md-fab label="Adicionar">
+              <md-icon slot="icon">add</md-icon>
+            </md-fab>
+
+            <p class="material-label">
+              Extended FAB
+            </p>
+
+          </div>
+
+        </div>
+
+        <p style="margin-top: 50px; text-align:center;">
+          O FAB destaca uma ação importante no contexto da tela.
+        </p>
+      </section>
+
+      <section>
+        <h2>Material Design - Icon Buttons</h2>
+
+        <div class="material-demo">
+
+          <md-icon-button>
+            <md-icon>favorite</md-icon>
+          </md-icon-button>
+
+          <md-icon-button>
+            <md-icon>delete</md-icon>
+          </md-icon-button>
+
+          <md-icon-button>
+            <md-icon>edit</md-icon>
+          </md-icon-button>
+
+          <md-icon-button>
+            <md-icon>settings</md-icon>
+          </md-icon-button>
+
+          <md-icon-button>
+            <md-icon>search</md-icon>
+          </md-icon-button>
+
+        </div>
+
+        <p style="margin-top:60px;">
+          Ícones economizam espaço, mas precisam possuir significado reconhecível.
+        </p>
+      </section>
+
+      <section>
+        <h2>Material 3: Cards</h2>
+        <ul>
+          <li>Cards agrupam conteúdo e ações relacionadas.</li>
+          <li>Podem criar separação e hierarquia entre conjuntos de informação.</li>
+          <li>Nem todo conteúdo precisa estar dentro de um Card.</li>
+          <li>O componente deve resolver um problema de organização, não apenas de estética.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Material Design - Cards</h2>
+
+        <div style="
+      width:520px;
+      margin:50px auto;
+      padding:35px;
+      border-radius:24px;
+      background:#f3edf7;
+      text-align:left;
+    ">
+
+          <h3 style="font-size:32px;">
+            Game Boy Camera
+          </h3>
+
+          <p style="font-size:24px;">
+            Um Card agrupa informações e ações relacionadas
+            dentro de uma mesma superfície.
+          </p>
+
+          <div style="text-align:right; margin-top:30px;">
+
+            <md-text-button>
+              Cancelar
+            </md-text-button>
+
+            <md-filled-button>
+              Abrir
+            </md-filled-button>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section>
+        <h2>Material Design - Precisamos mesmo de um Card?</h2>
+
+        <div style="
+      width:520px;
+      margin:50px auto;
+      padding:35px;
+      border-radius:24px;
+      background:#f3edf7;
+    ">
+
+          <div style="
+      padding:25px;
+      background:white;
+      border-radius:20px;">
+
+            <div style="
+        padding:25px;
+        background:#eee;
+        border-radius:20px;">
+
+              <p style="font-size:25px;">
+                CARD DENTRO DE CARD DENTRO DE CARD
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <p>
+          Componentes devem resolver problemas de interface,
+          não simplesmente decorar a tela.
+        </p>
+      </section>
+
+      <section>
+        <h2>Material 3: Text Fields</h2>
+        <ul>
+          <li>Campos precisam comunicar claramente o que deve ser informado.</li>
+          <li>Label, conteúdo, suporte e estado de erro possuem funções distintas.</li>
+          <li>Placeholder não deve substituir indiscriminadamente uma identificação persistente.</li>
+          <li>Foco, erro e estado desabilitado precisam ser perceptíveis.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Material Design - Text Fields</h2>
+
+        <div class="material-demo-column">
+
+          <md-filled-text-field label="Nome" value="Gustavo">
+          </md-filled-text-field>
+
+          <md-outlined-text-field label="E-mail" type="email">
+          </md-outlined-text-field>
+
+        </div>
+      </section>
+
+      <section>
+        <h2>Material Design - Estados de Text Field</h2>
+
+        <div class="material-demo">
+
+          <md-outlined-text-field label="Normal" value="Texto">
+          </md-outlined-text-field>
+
+          <md-outlined-text-field label="Desabilitado" value="Texto" disabled>
+          </md-outlined-text-field>
+
+        </div>
+      </section>
+
+      <section>
+        <h2>Material Design - Estado de Erro</h2>
+
+        <div class="material-demo">
+
+          <md-outlined-text-field label="E-mail" value="gustavo@" error
+            error-text="Informe um endereço de e-mail válido">
+          </md-outlined-text-field>
+
+        </div>
+
+        <p style="margin-top:60px;">
+          O usuário precisa compreender não apenas que ocorreu um erro,
+          mas também como corrigi-lo.
+        </p>
+      </section>
+
+      <section>
+        <h2>Material 3: Controles de seleção</h2>
+        <ul>
+          <li><b>Checkbox</b>: seleção independente de uma ou mais opções.</li>
+          <li><b>Radio Button</b>: escolha de uma opção dentro de um conjunto.</li>
+          <li><b>Switch</b>: alteração imediata de um estado ligado/desligado.</li>
+          <li>O componente deve refletir o modelo mental da ação.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Material Design - Checkbox</h2>
+
+        <div class="material-demo-column">
+
+          <label>
+            <md-checkbox></md-checkbox>
+            Java
+          </label>
+
+          <label>
+            <md-checkbox checked></md-checkbox>
+            Kotlin
+          </label>
+
+          <label>
+            <md-checkbox></md-checkbox>
+            Python
+          </label>
+
+        </div>
+
+        <p style="margin-top:50px;">
+          Permite selecionar zero, uma ou várias opções independentes.
+        </p>
+      </section>
+
+      <section>
+        <h2>Material Design - Radio Button</h2>
+
+        <div class="material-demo-column">
+
+          <label>
+            <md-radio name="linguagem"></md-radio>
+            Java
+          </label>
+
+          <label>
+            <md-radio name="linguagem" checked></md-radio>
+            Kotlin
+          </label>
+
+          <label>
+            <md-radio name="linguagem"></md-radio>
+            Python
+          </label>
+
+        </div>
+
+        <p style="margin-top:50px;">
+          Utilizado para escolher uma opção dentro de um conjunto mutuamente exclusivo.
+        </p>
+      </section>
+
+      <section>
+        <h2>Material Design - Switch</h2>
+
+        <div class="material-demo-column">
+
+          <label>
+            <md-switch></md-switch>
+            Wi-Fi
+          </label>
+
+          <label>
+            <md-switch selected></md-switch>
+            Bluetooth
+          </label>
+
+          <label>
+            <md-switch></md-switch>
+            Modo avião
+          </label>
+
+        </div>
+
+        <p style="margin-top:50px;">
+          Switch representa uma alteração imediata de estado.
+        </p>
+      </section>
+
+      <section>
+        <h2>Material 3: Feedback</h2>
+        <ul>
+          <li><b>Snackbar</b>: comunica resultados temporários sem bloquear completamente a interação.</li>
+          <li><b>Dialog</b>: solicita atenção ou decisão em um contexto importante.</li>
+          <li><b>Progress Indicators</b>: comunicam atividades em andamento.</li>
+          <li>Feedback reduz a dúvida: “o sistema recebeu minha ação?”</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Material Design - Snackbar</h2>
+
+        <div class="material-demo">
+
+          <md-filled-button onclick="
+        const s = document.querySelector('#snackbar-demo');
+        s.style.display='flex';
+
+        setTimeout(() => {
+          s.style.display='none';
+        }, 3000);
+      ">
+            Salvar arquivo
+          </md-filled-button>
+
+        </div>
+
+        <div id="snackbar-demo" style="
+      display:none;
+      position:absolute;
+      bottom:100px;
+      left:50%;
+      transform:translateX(-50%);
+      min-width:500px;
+      justify-content:space-between;
+      align-items:center;
+      background:#313033;
+      color:white;
+      padding:22px 30px;
+      border-radius:8px;
+      font-size:24px;">
+
+          <span>Arquivo salvo.</span>
+
+          <span style="
+        margin-left:40px;
+        font-weight:bold;">
+            DESFAZER
+          </span>
+
+        </div>
+      </section>
+
+      <section>
+        <h2>Material Design - Dialog</h2>
+
+        <div class="material-demo">
+
+          <md-filled-button onclick="document.querySelector('#demo-dialog').show()">
+            Excluir arquivo
+          </md-filled-button>
+
+        </div>
+
+        <md-dialog id="demo-dialog">
+
+          <div slot="headline">
+            Excluir arquivo?
+          </div>
+
+          <div slot="content">
+            Esta ação removerá permanentemente o arquivo.
+          </div>
+
+          <div slot="actions">
+
+            <md-text-button onclick="document.querySelector('#demo-dialog').close()">
+              Cancelar
+            </md-text-button>
+
+            <md-filled-button onclick="document.querySelector('#demo-dialog').close()">
+              Excluir
+            </md-filled-button>
+
+          </div>
+
+        </md-dialog>
+      </section>
+
+      <section>
+        <h2>Material Design - Circular Progress</h2>
+
+        <div class="material-demo">
+
+          <md-circular-progress indeterminate style="width:100px; height:100px;">
+          </md-circular-progress>
+
+        </div>
+
+        <p style="margin-top:60px;">
+          Progresso indeterminado: sabemos que a operação está acontecendo,
+          mas não sabemos quanto falta.
+        </p>
+      </section>
+
+      <section>
+        <h2>Material Design - Linear Progress</h2>
+
+        <div style="width:70%; margin:80px auto;">
+
+          <md-linear-progress value="0.65" style="width:100%; height:18px;">
+          </md-linear-progress>
+
+        </div>
+
+        <h3 style="text-align:center;">
+          65%
+        </h3>
+
+        <p>
+          Progresso determinado: podemos comunicar quanto da tarefa já foi concluído.
+        </p>
+      </section>
+
+      <section>
+        <h2>Material 3: Navegação</h2>
+        <ul>
+          <li><b>Navigation Bar</b>: comum em telas compactas.</li>
+          <li><b>Navigation Rail</b>: útil quando existe mais espaço horizontal.</li>
+          <li><b>Navigation Drawer</b>: adequado para conjuntos maiores de destinos.</li>
+          <li>O componente deve acompanhar a estrutura da informação e o espaço disponível.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Material Design - Navigation Bar</h2>
+
+        <div class="navigation-demo">
+
+          <button class="navigation-item active" onclick="selecionarNav(this)">
+            <md-icon>home</md-icon>
+            <span>Início</span>
+          </button>
+
+          <button class="navigation-item" onclick="selecionarNav(this)">
+            <md-icon>search</md-icon>
+            <span>Buscar</span>
+          </button>
+
+          <button class="navigation-item" onclick="selecionarNav(this)">
+            <md-icon>favorite</md-icon>
+            <span>Favoritos</span>
+          </button>
+
+        </div>
+
+        <p style="margin-top: 50px; text-align: center;">
+          Selecione um destino da aplicação.
+        </p>
+      </section>
+
+      <section>
+        <h2>Material Design - Navigation Rail</h2>
+
+        <div class="navigation-rail-demo">
+
+          <button class="navigation-rail-item active" onclick="selecionarRail(this)">
+            <md-icon>home</md-icon>
+            <span>Início</span>
+          </button>
+
+          <button class="navigation-rail-item" onclick="selecionarRail(this)">
+            <md-icon>search</md-icon>
+            <span>Buscar</span>
+          </button>
+
+          <button class="navigation-rail-item" onclick="selecionarRail(this)">
+            <md-icon>favorite</md-icon>
+            <span>Favoritos</span>
+          </button>
+
+          <button class="navigation-rail-item" onclick="selecionarRail(this)">
+            <md-icon>settings</md-icon>
+            <span>Configurações</span>
+          </button>
+
+        </div>
+
+        <p style="margin-top: 30px; text-align: center;">
+          Utilizada para navegação em layouts com maior espaço horizontal.
+        </p>
+      </section>
+
+
+
+      <section>
+        <h2>Material 3: Estados dos componentes</h2>
+        <ul>
+          <li>Um componente não possui apenas uma aparência.</li>
+          <li>Enabled, disabled, focused, pressed, selected e error são exemplos de estados.</li>
+          <li>Estados precisam ser comunicados visualmente e, quando necessário, por tecnologias assistivas.</li>
+          <li>Consistência de estados reduz ambiguidade.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material Design não é “copiar o Google”</h2>
+        <ul>
+          <li>Material fornece uma base, não uma identidade obrigatória.</li>
+          <li>Temas permitem incorporar cores, tipografia e formas próprias do produto.</li>
+          <li>O objetivo é equilibrar identidade, consistência, familiaridade e acessibilidade.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Material 3 + Jetpack Compose</h1>
+      </section>
+      <section>
+        <h2>Material 3 + Jetpack Compose</h2>
+        <ul>
+          <li>Jetpack Compose possui uma implementação oficial dos componentes Material 3.</li>
+          <li>O ponto central de tematização é <code>MaterialTheme</code>.</li>
+          <li><code>ColorScheme</code>, <code>Typography</code> e <code>Shapes</code> podem ser fornecidos no topo da
+            árvore de UI.</li>
+          <li>Os componentes descendentes passam a consumir essas decisões.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>MaterialTheme</h2>
+        <ul>
+          <li><code>MaterialTheme</code> conecta o Design System ao código.</li>
+          <li><code>colorScheme</code> define papéis de cor.</li>
+          <li><code>typography</code> define a escala tipográfica.</li>
+          <li><code>shapes</code> define a linguagem de formas.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>MaterialTheme: Exemplo</h2>
+        <pre><code data-trim data-noescape>MaterialTheme(
+    colorScheme = colorScheme,
+    typography = AppTypography,
+    shapes = AppShapes
+) {
+    // Interface da aplicação
+}</code></pre>
+        <ul>
+          <li>Uma decisão conceitual do Design System torna-se uma regra reutilizável no código.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material 3: Componentes no Compose</h2>
+        <pre><code data-trim data-noescape>Button(onClick = { /* ação */ }) {
+    Text("Salvar")
+}
+
+Card {
+    Text("Conteúdo")
+}</code></pre>
+        <ul>
+          <li>Componentes implementam padrões de aparência, interação e acessibilidade sem reconstruí-los do zero.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material 3: Scaffold</h2>
+        <ul>
+          <li><code>Scaffold</code> oferece uma estrutura para elementos comuns de uma tela Material.</li>
+          <li>Pode acomodar TopAppBar, BottomBar, FloatingActionButton e conteúdo.</li>
+          <li>Não determina o design completo da tela.</li>
+          <li>Organiza componentes recorrentes de maneira coerente.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Do conceito para o código</h2>
+        <ul>
+          <li>Design System → Material Design 3 → Tema → Componentes → Aplicação.</li>
+          <li>Cor → ColorScheme.</li>
+          <li>Tipografia → Typography.</li>
+          <li>Forma → Shapes.</li>
+          <li>Padrões de interação → Componentes Material.</li>
+          <li>O Compose implementa decisões que primeiro estudamos como conceitos de UI/UX.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Exercício de análise</h2>
+        <ul>
+          <li>Escolha uma tela de aplicativo Android.</li>
+          <li>Identifique a hierarquia visual e as ações primária e secundárias.</li>
+          <li>Quais componentes Material podem ser reconhecidos?</li>
+          <li>Como cor, tipografia e forma comunicam a estrutura?</li>
+          <li>O que você alteraria sem modificar a funcionalidade?</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Material Design 3: Síntese</h2>
+        <ul>
+          <li>Material Design é um Design System, não apenas um conjunto de componentes bonitos.</li>
+          <li>Consistência nasce de regras compartilhadas.</li>
+          <li>Tema transforma decisões visuais em um sistema.</li>
+          <li>Componentes transformam padrões de interação em unidades reutilizáveis.</li>
+        </ul>
+      </section>
+      <section>
+        <h1>OBRIGADO!</h1>
+        <p>Podem me encontrar aqui:</p>
+        <ul>
+          <li>gustavo.palma@unisal.edu.br</li>
+          <li>www.gustavopalma.com.br</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="../../../dist/reveal.js"></script>
+
+
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/zoom/zoom.js"></script>
+  <script>
+    const iframe = document.getElementById('terminal');
+    if (iframe != null) {
+      iframe.onload = () => {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        const style = doc.createElement('style');
+        style.innerHTML = `
+      .xterm {
+        font-size: 20px !important;
+        line-height: 1.2 !important;
+      }
+    `;
+        doc.head.appendChild(style);
+      };
+    }
+
+  </script>
+
+  <script>
+    function selecionarRail(elemento) {
+      const rail = elemento.closest('.navigation-rail-demo');
+
+      rail.querySelectorAll('.navigation-rail-item')
+        .forEach(item => item.classList.remove('active'));
+
+      elemento.classList.add('active');
+    }
+  </script>
+
+  <script>
+    function selecionarNav(elemento) {
+      const barra = elemento.closest('.navigation-demo');
+
+      barra.querySelectorAll('.navigation-item')
+        .forEach(item => item.classList.remove('active'));
+
+      elemento.classList.add('active');
+    }
+  </script>
+  <script>
+    Reveal.on('ready', event => {
+      const headerTemplate = document.getElementById('header-template');
+      const footerTemplate = document.getElementById('footer-template');
+
+      document.querySelectorAll('.slide-background').forEach(backgroundDiv => {
+        if (headerTemplate) {
+          backgroundDiv.appendChild(headerTemplate.cloneNode(true));
+        }
+        if (footerTemplate) {
+          backgroundDiv.appendChild(footerTemplate.cloneNode(true));
+        }
+      });
+
+      const nomeDisciplina = "UI & UX";
+      const assuntoAula = "Design Systems e Material Design 3"
+      const aulaNum = '3';
+      const currentDate = new Date();
+
+      // Get the full four-digit year
+      const currentYear = " " + currentDate.getFullYear(); // e.g., 2026
+
+      // Find the HTML element by its ID and set its text content to the current year
+      document.getElementById('year-placeholder').textContent = "\  " + currentYear;
+      var elems = document.getElementsByClassName('lecture_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = nomeDisciplina;
+      }
+      document.title = nomeDisciplina;
+      document.getElementById('aula_num_placeholder').textContent = aulaNum
+      elems = document.getElementsByClassName('lecture_subject_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = assuntoAula;
+      }
+    });
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      center: true,
+      width: "100%",
+      height: "100%",
+      margin: 0,
+      controls: true,
+      controlsBackArrows: 'faded',
+      progress: true,
+      plugins: [RevealHighlight, RevealZoom],
+    });
+  </script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+
+</html>

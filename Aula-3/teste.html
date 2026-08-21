@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <script type="importmap">
+  {
+    "imports": {
+      "@material/web/": "https://esm.run/@material/web/"
+    }
+  }
+  </script>
+
+  <script type="module">
+    import '@material/web/all.js';
+
+    console.log(
+      "Material carregado:",
+      customElements.get("md-filled-button")
+    );
+  </script>
+</head>
+
+<body>
+
+  <md-filled-button>Salvar</md-filled-button>
+
+  <md-filled-tonal-button>Continuar</md-filled-tonal-button>
+
+  <md-outlined-button>Cancelar</md-outlined-button>
+
+  <md-text-button>Mais informações</md-text-button>
+
+</body>
+</html>
