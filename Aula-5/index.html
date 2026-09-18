@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title><span class="lecture_placeholder"></title>
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
+  <link rel="stylesheet" href="css/mine.css">
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  <script type="module" src="js/material.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Cabeçalho -->
+  <div id="header-template">
+    <a href="https://unisal.br/">
+      <img src="img/logo_unisal.png" alt="Logo">
+    </a>
+    <h1>Aula &nbsp; <span id="aula_num_placeholder"></span> &nbsp; - &nbsp; <span class="lecture_placeholder"></span>
+      &nbsp; - &nbsp; <span class="lecture_subject_placeholder"></span></h1>
+  </div>
+
+  <!-- Rodapé -->
+  <div id="footer-template">
+    UNISAL - São José, Campinas - &nbsp; <span id="year-placeholder"></span>
+  </div>
+
+  <!-- Slides -->
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <a href="https://unisal.br/"><img src="img/logo_unisal.png" alt="logo unisal" style="height:180px;margin:0 auto 4rem auto;background:transparent" class="demo-logo"></a>
+        <h2><span class="lecture_placeholder"></span></h2>
+        <h3><span class="lecture_subject_placeholder"></span></h3>
+        <p><small>Prof. Me. Gustavo Ferreira Palma</small></p>
+      </section>
+
+      <section>
+        <h2>Antes de começar...</h2>
+        <img src="img/tirinha_vida_programador.png" alt="Tirinha Vida de Programador: site não carrega porque não há conexão com a Internet" style="max-height:68vh;max-width:92%;object-fit:contain">
+        <p><small>Vida de Programador — a conexão é parte da experiência.</small></p>
+      </section>
+
+      <section><h2>Pauta</h2><ul>
+        <li>Internet ≠ World Wide Web</li><li>Da comutação de pacotes ao nascimento da Web</li>
+        <li>Arquitetura cliente/servidor</li><li>DNS, URL, HTTP e HTTPS</li>
+        <li>Servidor Web × servidor de aplicação</li><li><code>file://</code> × <code>http://</code> e ambiente de laboratório</li>
+        <li>Como o navegador transforma arquivos em uma interface</li>
+      </ul></section>
+
+      <section><h1>Parte 1<br>Internet ≠ Web</h1></section>
+      <section><h2>Internet e Web são a mesma coisa?</h2><div class="compare-grid"><div class="concept-card"><h3>Internet</h3><p>Infraestrutura global de redes interconectadas.</p><p><b>TCP/IP, roteamento, endereçamento...</b></p></div><div class="concept-card"><h3>Web</h3><p>Um serviço construído sobre a Internet.</p><p><b>URL, HTTP, HTML, navegador...</b></p></div></div><p class="callout">A Web usa a Internet. A Internet existia antes da Web.</p></section>
+      <section><h2>A Internet é infraestrutura</h2><div class="stack-diagram"><div>Aplicações<br><small>Web · e-mail · jogos · mensagens</small></div><div>Protocolos de transporte<br><small>TCP · UDP · QUIC</small></div><div>Internet Protocol<br><small>IP</small></div><div>Redes físicas<br><small>Ethernet · Wi‑Fi · fibra · 4G/5G...</small></div></div></section>
+      <section><h2>A Web é uma aplicação distribuída</h2><div class="flow"><span>👤 Usuário</span><b>→</b><span>🌐 Navegador</span><b>→</b><span>HTTP(S)</span><b>→</b><span>🖥️ Servidor</span></div><p>O navegador pede recursos; o servidor responde; o navegador interpreta e apresenta uma interface.</p></section>
+
+      <section><h1>Parte 2<br>Uma breve história</h1></section>
+      <section><h2>Antes da Internet</h2><p>Comunicação a distância, computadores e redes de dados não surgiram de uma única invenção.</p><div class="timeline"><div class="event"><b>1830–40</b><span>Telégrafo elétrico</span></div><div class="event"><b>1940s</b><span>Computadores eletrônicos</span></div><div class="event"><b>1950s</b><span>Comunicação entre computadores</span></div><div class="event"><b>1960s</b><span>Comutação de pacotes</span></div></div><p><small>São antecedentes tecnológicos; ainda não estamos falando da Web.</small></p></section>
+      <section><h2>1960s — Redes por comutação de pacotes</h2><div class="timeline"><div class="event"><b>1961</b><span>Kleinrock publica trabalho sobre filas e redes</span></div><div class="event"><b>1962</b><span>Licklider descreve uma visão de computadores conectados</span></div><div class="event"><b>1966</b><span>Planejamento da ARPANET</span></div><div class="event"><b>1969</b><span>Primeiros quatro hosts da ARPANET</span></div></div></section>
+      <section><h2>1969 — ARPANET</h2><div class="nodes"><span>UCLA</span><span>SRI</span><span>UCSB</span><span>Utah</span></div><p>Ao fim de 1969, quatro computadores estavam conectados à ARPANET.</p><p class="callout">A rede nasce como pesquisa de comunicação entre computadores — não como “a Web”.</p></section>
+      <section><h2>1970s — A rede começa a ganhar aplicações</h2><div class="timeline"><div class="event"><b>1971–72</b><span>E-mail torna-se uma aplicação central da ARPANET</span></div><div class="event"><b>1973</b><span>Kahn e Cerf trabalham na arquitetura de interligação de redes</span></div><div class="event"><b>1974</b><span>Publicação do trabalho sobre internetworking/TCP</span></div><div class="event"><b>1970s</b><span>Redes diferentes começam a ser interligadas</span></div></div></section>
+      <section><h2>1983 — TCP/IP</h2><div class="timeline"><div class="event"><b>1 jan. 1983</b><span>ARPANET migra de NCP para TCP/IP</span></div><div class="event"><b>1983</b><span>TCP/IP consolida a ideia de “rede de redes”</span></div><div class="event"><b>1984</b><span>DNS começa a substituir listas centralizadas de hosts</span></div><div class="event"><b>1986</b><span>NSFNET amplia a infraestrutura acadêmica</span></div></div></section>
+      <section><h2>1989 — A Web é proposta</h2><div class="hero-year">1989</div><p>Tim Berners-Lee, no CERN, propõe um sistema de informação baseado em hipertexto para compartilhar documentos entre pesquisadores.</p><p class="callout">A Internet já existia. O que nasce aqui é a <b>World Wide Web</b>.</p></section>
+      <section><h2>As três peças fundamentais da Web</h2><div class="triple"><div><b>URL / URI</b><small>Como identificar um recurso</small></div><div><b>HTTP</b><small>Como cliente e servidor conversam</small></div><div><b>HTML</b><small>Como estruturar documentos hipertexto</small></div></div><p>O navegador une essas peças e apresenta o resultado ao usuário.</p></section>
+      <section><h2>1990–1993 — A Web sai do laboratório</h2><div class="timeline"><div class="event"><b>1990</b><span>Primeiro servidor e navegador/editor WorldWideWeb</span></div><div class="event"><b>1991</b><span>Primeiro website torna o projeto acessível pela Internet</span></div><div class="event"><b>1993</b><span>CERN libera o software da Web para uso público</span></div><div class="event"><b>1993</b><span>Mosaic populariza a navegação gráfica</span></div></div></section>
+      <section><h2>De documentos para aplicações</h2><div class="timeline"><div class="event"><b>1990s</b><span>Documentos, portais e páginas pessoais</span></div><div class="event"><b>2000s</b><span>Web 2.0, conteúdo gerado por usuários e AJAX</span></div><div class="event"><b>2010s</b><span>Mobile-first, SPAs e frameworks frontend</span></div><div class="event"><b>2020s</b><span>Aplicações ricas, PWAs, SSR/SSG e Web APIs</span></div></div></section>
+      <section><h2>A Web que muitos de nós conheceram</h2><div class="legacy-web"><img src="img/google_antigo.jpg" alt="Página antiga do Google"><img src="img/youtube_antigo.png" alt="Página antiga do YouTube"><img src="img/icq.png" alt="Interface antiga do ICQ"></div><p>Interfaces, largura de banda, dispositivos e expectativas do usuário mudaram juntos.</p></section>
+      <section><h2>UI/UX também conta essa história</h2><ul><li>De páginas de documentos para sistemas interativos.</li><li>De desktop fixo para múltiplos tamanhos de tela.</li><li>De “clique aqui” para padrões de interação consolidados.</li><li>De sites isolados para experiências integradas a APIs e serviços.</li></ul><p class="callout">A tecnologia muda; princípios de usabilidade continuam relevantes.</p></section>
+
+      <section><h1>Parte 3<br>Arquitetura da Web</h1></section>
+      <section><h2>Cliente / Servidor</h2><div class="client-server"><div><b>Cliente</b><small>Navegador<br>Chrome · Firefox · Edge</small></div><div class="arrows">HTTP request →<br>← HTTP response</div><div><b>Servidor</b><small>Apache · Nginx · IIS<br>ou aplicação</small></div></div><p>São papéis na comunicação — não marcas de software ou tipos específicos de computador.</p></section>
+      <section><h2>O cliente não precisa conhecer o servidor por dentro</h2><ul><li>Sistema operacional e hardware podem ser diferentes.</li><li>O contrato está nos protocolos e formatos compartilhados.</li><li>O servidor pode entregar arquivos estáticos ou executar lógica.</li><li>O cliente pode ser navegador, app móvel ou outro sistema.</li></ul></section>
+      <section><h2>Da arquitetura local à distribuída</h2><div class="architecture-row"><div>💻<br><b>Cliente</b></div><b>→</b><div>🌐<br><b>Web/API</b></div><b>→</b><div>⚙️<br><b>Aplicação</b></div><b>→</b><div>🗄️<br><b>Dados</b></div></div><p>Essas camadas podem estar na mesma máquina ou distribuídas em vários servidores.</p></section>
+      <section><h2>Servidor Web × Servidor de Aplicação</h2><div class="compare-grid"><div class="concept-card"><h3>Servidor Web</h3><p>Recebe HTTP(S) e entrega recursos.</p><p>Ex.: arquivos HTML, CSS, JS, imagens.</p></div><div class="concept-card"><h3>Aplicação</h3><p>Executa regras e produz respostas dinâmicas.</p><p>Ex.: Spring Boot respondendo JSON.</p></div></div><p><small>Na prática, as fronteiras podem se sobrepor.</small></p></section>
+      <section><h2>Exemplo: nossa futura aplicação</h2><div class="client-server"><div><b>Vue</b><small>Interface no navegador</small></div><div class="arrows">GET /api/pokemon →<br>← JSON</div><div><b>Spring</b><small>API / regras / dados</small></div></div><p>Mais adiante, as duas disciplinas vão se encontrar aqui.</p></section>
+
+      <section><h1>Parte 4<br>Endereços e protocolos</h1></section>
+      <section><h2>O que acontece quando digitamos uma URL?</h2><div class="steps"><div><b>1</b><span>Interpretar a URL</span></div><div><b>2</b><span>Descobrir o endereço via DNS</span></div><div><b>3</b><span>Conectar ao servidor</span></div><div><b>4</b><span>Enviar uma requisição HTTP</span></div><div><b>5</b><span>Receber recursos</span></div><div><b>6</b><span>Renderizar a página</span></div></div></section>
+      <section><h2>URL: endereço de um recurso</h2><pre><code>https://www.exemplo.com:443/produtos/42?moeda=BRL#detalhes
+└─┬─┘   └──────┬──────┘ └┬┘ └────┬─────┘ └───┬────┘ └──┬───┘
+ esquema       host       porta   caminho      query    fragmento</code></pre><p>Nem toda parte aparece em toda URL.</p></section>
+      <section><h2>DNS: nomes para endereços</h2><div class="flow"><span>www.unisal.br</span><b>→</b><span>DNS</span><b>→</b><span>endereço IP</span></div><p>O DNS é um sistema distribuído de nomes. Ele permite que usuários trabalhem com nomes em vez de memorizar endereços numéricos.</p></section>
+      <section><h2>HTTP: uma conversa de requisição e resposta</h2><div class="http-pair"><pre><code>GET /index.html HTTP/1.1
+Host: exemplo.com
+Accept: text/html</code></pre><pre><code>HTTP/1.1 200 OK
+Content-Type: text/html
+
+&lt;html&gt;...&lt;/html&gt;</code></pre></div></section>
+      <section><h2>Métodos HTTP</h2><table><thead><tr><th>Método</th><th>Ideia geral</th></tr></thead><tbody><tr><td>GET</td><td>Obter um recurso</td></tr><tr><td>POST</td><td>Enviar/criar dados</td></tr><tr><td>PUT / PATCH</td><td>Atualizar dados</td></tr><tr><td>DELETE</td><td>Remover um recurso</td></tr></tbody></table><p><small>Voltaremos a eles quando Vue consumir APIs.</small></p></section>
+      <section><h2>Códigos de resposta</h2><div class="status-grid"><div><b>2xx</b><span>Sucesso<br>200 OK</span></div><div><b>3xx</b><span>Redirecionamento<br>301 / 302</span></div><div><b>4xx</b><span>Problema na requisição<br>404 Not Found</span></div><div><b>5xx</b><span>Problema no servidor<br>500</span></div></div></section>
+      <section><h2>HTTP × HTTPS</h2><div class="compare-grid"><div class="concept-card"><h3>HTTP</h3><p>Define a comunicação da Web.</p><p>Sem TLS, o tráfego não recebe as garantias de confidencialidade e autenticação do HTTPS.</p></div><div class="concept-card"><h3>HTTPS</h3><p>HTTP protegido por TLS.</p><p>Criptografia em trânsito + autenticação do servidor por certificado.</p></div></div><p class="callout">Hoje, HTTPS é o padrão esperado para sites e aplicações Web públicas.</p></section>
+
+      <section><h1>Parte 5<br>Servindo nossa primeira página</h1></section>
+      <section><h2>Abrir um arquivo ≠ acessar um servidor</h2><div class="compare-grid"><div class="concept-card"><h3>Arquivo local</h3><code>file:///C:/aula/index.html</code><p>O navegador lê diretamente do sistema de arquivos.</p></div><div class="concept-card"><h3>HTTP local</h3><code>http://localhost/aula/</code><p>O navegador faz uma requisição a um servidor.</p></div></div></section>
+      <section><h2>Opção 1 — Apache do WampServer</h2><pre><code>C:\wamp64\www\aula-web\
+├── index.html
+├── css\
+└── js\</code></pre><div class="flow"><span>Pasta www</span><b>→</b><span>Apache</span><b>→</b><span>http://localhost/aula-web/</span></div><p>No laboratório, usaremos o Apache já disponível no WampServer.</p></section>
+      <section><h2>WampServer não é “a Web”</h2><div class="stack-diagram"><div>WampServer<br><small>gerencia o ambiente</small></div><div>Apache<br><small>é o servidor HTTP que nos interessa agora</small></div><div>PHP / MySQL<br><small>não são necessários para nossas primeiras páginas</small></div></div><p>É importante separar a ferramenta de gerenciamento dos serviços que ela reúne.</p></section>
+      <section><h2>Opção 2 — Python</h2><pre><code class="language-bash">cd minha-pagina
+python -m http.server 8000</code></pre><p>Depois:</p><pre><code>http://localhost:8000/</code></pre><p>Ótimo para desenvolvimento rápido e para entender o que significa “servir uma pasta”.</p></section>
+      <section><h2>Opção 3 — Mais adiante: Vite</h2><pre><code class="language-bash">npm run dev</code></pre><pre><code>http://localhost:5173/</code></pre><p>Quando chegarmos ao Vue com componentes e build, o próprio ambiente de desenvolvimento fornecerá um servidor.</p></section>
+      <section><h2>localhost</h2><div class="hero-year">127.0.0.1</div><p><b>localhost</b> representa a própria máquina.</p><p>Não é “o WAMP”. Diferentes servidores podem escutar em diferentes portas da mesma máquina.</p><pre><code>http://localhost/       → porta 80 por padrão
+http://localhost:8000/  → Python
+http://localhost:5173/  → Vite (comum)</code></pre></section>
+
+      <section><h1>Parte 6<br>Do arquivo à interface</h1></section>
+      <section><h2>O navegador recebe arquivos</h2><div class="triple"><div><b>HTML</b><small>Estrutura e significado</small></div><div><b>CSS</b><small>Apresentação</small></div><div><b>JavaScript</b><small>Comportamento</small></div></div><p>Essa tríade será a base dos próximos encontros.</p></section>
+      <section><h2>HTML → DOM</h2><pre><code class="language-html">&lt;main&gt;
+    &lt;h1&gt;Pokédex&lt;/h1&gt;
+    &lt;button&gt;Buscar&lt;/button&gt;
+&lt;/main&gt;</code></pre><div class="flow"><span>HTML</span><b>→</b><span>parser do navegador</span><b>→</b><span>DOM</span></div><p>O DOM é uma representação estruturada do documento que o JavaScript poderá manipular.</p></section>
+      <section><h2>CSS participa da apresentação</h2><pre><code class="language-css">button {
+    padding: 12px 24px;
+    border-radius: 12px;
+}</code></pre><p>O navegador combina estrutura, estilos e recursos para calcular o layout e desenhar a interface.</p></section>
+      <section><h2>JavaScript acrescenta comportamento</h2><pre><code class="language-javascript">const botao = document.querySelector("button");
+
+botao.addEventListener("click", () => {
+    console.log("Buscar Pokémon");
+});</code></pre><p>Antes de Vue, vamos entender pelo menos uma vez como o navegador trabalha sem framework.</p></section>
+      <section><h2>DevTools: nosso laboratório dentro do navegador</h2><ul><li><b>Elements</b>: DOM e CSS.</li><li><b>Console</b>: JavaScript, erros e testes rápidos.</li><li><b>Network</b>: requisições HTTP e respostas.</li><li><b>Application</b>: armazenamento e recursos da aplicação.</li><li><b>Device toolbar</b>: testar diferentes dimensões de tela.</li></ul></section>
+      <section><h2>Atividade rápida</h2><ol><li>Crie uma pasta <code>aula-web</code>.</li><li>Adicione um <code>index.html</code> com título, parágrafo e botão.</li><li>Sirva a pasta pelo Apache/WampServer ou Python.</li><li>Acesse por <code>http://localhost...</code>.</li><li>Abra o DevTools e encontre a requisição do <code>index.html</code> na aba Network.</li></ol></section>
+      <section><h2>Na próxima etapa...</h2><div class="triple"><div><b>HTML</b><small>O que existe?</small></div><div><b>CSS</b><small>Como aparece?</small></div><div><b>JavaScript</b><small>Como se comporta?</small></div></div><p class="callout">Depois disso, Vue responderá: “como organizamos tudo quando a interface cresce?”</p></section>
+
+      <section><h2>Referências e atualização do material de 2017</h2><ul><li>CERN — <i>The birth of the Web</i></li><li>Internet Society — <i>A Brief History of the Internet</i></li><li>MDN Web Docs — <i>How the Web works</i></li><li>Material original de Aplicações para Web I (2017), atualizado para esta disciplina.</li></ul></section>
+      <section><h1>Dúvidas?</h1><p>Da infraestrutura à interface: agora podemos começar a construir a Web.</p></section>
+
+    </div>
+  </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="../../../dist/reveal.js"></script>
+
+
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/zoom/zoom.js"></script>
+  <script>
+    const iframe = document.getElementById('terminal');
+    if (iframe != null) {
+      iframe.onload = () => {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        const style = doc.createElement('style');
+        style.innerHTML = `
+      .xterm {
+        font-size: 20px !important;
+        line-height: 1.2 !important;
+      }
+    `;
+        doc.head.appendChild(style);
+      };
+    }
+
+  </script>
+
+  <script>
+    function selecionarRail(elemento) {
+      const rail = elemento.closest('.navigation-rail-demo');
+
+      rail.querySelectorAll('.navigation-rail-item')
+        .forEach(item => item.classList.remove('active'));
+
+      elemento.classList.add('active');
+    }
+  </script>
+
+  <script>
+    function selecionarNav(elemento) {
+      const barra = elemento.closest('.navigation-demo');
+
+      barra.querySelectorAll('.navigation-item')
+        .forEach(item => item.classList.remove('active'));
+
+      elemento.classList.add('active');
+    }
+  </script>
+  <script>
+    Reveal.on('ready', event => {
+      const headerTemplate = document.getElementById('header-template');
+      const footerTemplate = document.getElementById('footer-template');
+
+      document.querySelectorAll('.slide-background').forEach(backgroundDiv => {
+        if (headerTemplate) {
+          backgroundDiv.appendChild(headerTemplate.cloneNode(true));
+        }
+        if (footerTemplate) {
+          backgroundDiv.appendChild(footerTemplate.cloneNode(true));
+        }
+      });
+
+      const nomeDisciplina = "UI & UX";
+      const assuntoAula = "Arquitetura e História da Web"
+      const aulaNum = '5';
+      const currentDate = new Date();
+
+      // Get the full four-digit year
+      const currentYear = " " + currentDate.getFullYear(); // e.g., 2026
+
+      // Find the HTML element by its ID and set its text content to the current year
+      document.getElementById('year-placeholder').textContent = "\  " + currentYear;
+      var elems = document.getElementsByClassName('lecture_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = nomeDisciplina;
+      }
+      document.title = nomeDisciplina;
+      document.getElementById('aula_num_placeholder').textContent = aulaNum
+      elems = document.getElementsByClassName('lecture_subject_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = assuntoAula;
+      }
+    });
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      center: true,
+      width: "100%",
+      height: "100%",
+      margin: 0,
+      controls: true,
+      controlsBackArrows: 'faded',
+      progress: true,
+      plugins: [RevealHighlight, RevealZoom],
+    });
+  </script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+
+</html>

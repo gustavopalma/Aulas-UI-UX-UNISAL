@@ -1,0 +1,450 @@
+    body {
+      margin-top: 10px;
+      font-family: Lato, sans-serif;
+      ;
+    }
+
+    /* Cabeçalho */
+    #header-template {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      z-index: 1000;
+      border-bottom: 2px solid #ccc;
+    }
+
+    #header-template img {
+      height: 40px;
+      margin-right: 15px;
+    }
+
+    #header-template h1 {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    /* Rodapé */
+    #footer-template {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40px;
+      background: #041f56;
+      display: flex;
+      color: #FFFFFF;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      border-top: 2px solid #ccc;
+      z-index: 1000;
+    }
+
+    /* Área Reveal com padding */
+    .reveal {
+      padding-top: 70px;
+      /* altura cabeçalho + margem */
+      padding-bottom: 50px;
+      /* altura rodapé + margem */
+    }
+
+    .reveal-viewport {
+      height: calc(100vh - 70px - 50px) !important;
+    }
+
+    /* Centralização vertical real */
+    .slides section {
+      height: calc(100vh - 70px - 50px) !important;
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    .imageRow {
+      display: flex;
+      flex-wrap: wrap;
+      /* permite quebrar linha se não couber */
+      gap: 10px;
+      /* espaço entre os blocos */
+      justify-content: center;
+      /* centraliza os itens */
+    }
+
+    .imgContainer {
+      display: flex;
+      flex-direction: column;
+      /* organiza imagem e texto em coluna */
+      justify-content: center;
+      /* centraliza verticalmente */
+      align-items: center;
+      /* centraliza horizontalmente */
+      height: 100%;
+      /* ou defina uma altura fixa, ex: 200px */
+      text-align: center;
+    }
+
+    .content {
+      margin-top: 80px;
+      margin-bottom: 60px;
+    }
+
+    .quad-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 5px;
+      height: 60vh;
+      align-items: stretch;
+    }
+
+    .quad {
+      border-radius: 16px;
+      border: 2px solid #970202;
+      color: #970202;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 28px;
+      line-height: 1.2;
+      background: rgba(255, 255, 255, .06);
+      backdrop-filter: blur(3px);
+    }
+
+    .fragment.fade-in-zoom {
+      transform: scale(.92);
+    }
+
+    .fragment.visible.fade-in-zoom {
+      transform: none;
+    }
+
+    .scroll-slide {
+      overflow-y: auto;
+      max-height: 100vh;
+      padding: 1em;
+    }
+
+    #data-table {
+      font-size: 0.8em;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.4em 1em;
+      font-size: 0.4em;
+      font-weight: 100;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    /* Variações */
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background-color: #a71d2a;
+    }
+
+    .btn-success {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .btn-success:hover {
+      background-color: #1e7e34;
+    }
+
+    .material-demo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 35px;
+      flex-wrap: wrap;
+      margin-top: 60px;
+    }
+
+    .material-demo-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    /* Aumenta os componentes Material Web */
+    .material-demo md-filled-button,
+    .material-demo md-filled-tonal-button,
+    .material-demo md-outlined-button,
+    .material-demo md-text-button,
+    .material-demo md-elevated-button {
+      --md-filled-button-container-height: 64px;
+      --md-filled-tonal-button-container-height: 64px;
+      --md-outlined-button-container-height: 64px;
+      --md-text-button-container-height: 64px;
+      --md-elevated-button-container-height: 64px;
+
+      font-size: 24px;
+    }
+
+    .material-demo md-filled-text-field,
+    .material-demo md-outlined-text-field {
+      width: 420px;
+      font-size: 22px;
+    }
+
+    .material-demo label {
+      font-size: 26px;
+    }
+
+    .material-demo md-checkbox,
+    .material-demo md-radio,
+    .material-demo md-switch {
+      transform: scale(1.45);
+      margin: 15px;
+    }
+
+    .material-demo md-icon-button {
+      --md-icon-button-icon-size: 42px;
+      --md-icon-button-state-layer-height: 64px;
+      --md-icon-button-state-layer-width: 64px;
+
+      margin: 15px;
+    }
+
+    .material-demo md-filter-chip {
+      transform: scale(1.25);
+      margin: 10px;
+    }
+
+    .material-label {
+      font-size: 22px;
+      margin-top: 12px;
+    }
+
+    md-icon {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+
+      font-size: 48px;
+      line-height: 1;
+
+      width: 48px;
+      height: 48px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: visible;
+
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48;
+    }
+
+    .navigation-demo {
+      width: 75%;
+      margin: 80px auto;
+
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      padding: 30px;
+
+      background: #f3edf7;
+      border-radius: 30px;
+    }
+
+    .navigation-item {
+      min-width: 160px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      gap: 12px;
+
+      font-size: 24px;
+    }
+
+    .navigation-item md-icon {
+      font-size: 48px;
+      width: 48px;
+      height: 48px;
+      line-height: 1;
+
+      overflow: visible;
+    }
+
+    .navigation-item span {
+      line-height: 1.2;
+    }
+
+    .navigation-item {
+      min-width: 180px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      gap: 10px;
+
+      padding: 12px 25px;
+
+      border: none;
+      background: transparent;
+
+      font-size: 24px;
+      cursor: pointer;
+
+      border-radius: 25px;
+    }
+
+    .navigation-item md-icon {
+      font-size: 48px;
+      line-height: 48px;
+
+      width: 48px;
+      height: 48px;
+
+      overflow: visible;
+    }
+
+    /* Destino atualmente selecionado */
+    .navigation-item.active md-icon {
+      background: #e8def8;
+      border-radius: 25px;
+
+      width: 80px;
+      height: 48px;
+    }
+
+    .navigation-item:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .navigation-rail-demo {
+      width: 180px;
+      height: 500px;
+
+      margin: 20px auto;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+
+      padding: 20px 10px;
+
+      background: #f3edf7;
+      border-radius: 30px;
+    }
+
+    .navigation-rail-item {
+      width: 160px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      gap: 8px;
+
+      padding: 10px;
+
+      border: none;
+      background: transparent;
+      border-radius: 25px;
+
+      font-size: 20px;
+
+      cursor: pointer;
+    }
+
+    .navigation-rail-item md-icon {
+      font-family: 'Material Symbols Outlined';
+
+      font-size: 42px;
+      line-height: 48px;
+
+      width: 80px;
+      height: 48px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: visible;
+
+      border-radius: 25px;
+
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48;
+    }
+
+    .navigation-rail-item span {
+      display: block;
+
+      font-size: 19px;
+      line-height: 1.2;
+
+      white-space: nowrap;
+    }
+
+    /* Item selecionado */
+    .navigation-rail-item.active md-icon {
+      background: #e8def8;
+
+      font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48;
+    }
+
+    /* Hover */
+    .navigation-rail-item:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    /* Foco por teclado */
+    .navigation-rail-item:focus-visible {
+      outline: 3px solid #6750a4;
+      outline-offset: 3px;
+    }
+
+/* Aula 5 — Arquitetura e História da Web */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;width:88%;margin:24px auto}.concept-card{border:2px solid #041f56;border-radius:18px;padding:24px;text-align:left;background:#f8f9fb}.concept-card h3{color:#041f56;margin-top:0}.callout{border-left:8px solid #970202;padding:12px 20px;background:#fff5f5;max-width:85%;font-weight:600}.stack-diagram{display:flex;flex-direction:column;width:70%;gap:8px}.stack-diagram>div{border:2px solid #041f56;border-radius:12px;padding:12px 20px;background:#f8f9fb}.stack-diagram small,.triple small,.client-server small{display:block;margin-top:8px}.flow,.architecture-row{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;font-size:1.15em}.flow span,.architecture-row div{border:2px solid #041f56;border-radius:14px;padding:18px 24px;background:#f8f9fb}.timeline{position:relative;display:flex;width:92%;justify-content:space-between;gap:10px;margin:55px auto 20px}.timeline:before{content:"";position:absolute;left:4%;right:4%;top:21px;height:5px;background:#041f56;border-radius:4px}.event{position:relative;z-index:1;width:23%;text-align:center}.event:before{content:"";display:block;width:24px;height:24px;border-radius:50%;background:#970202;border:6px solid white;box-shadow:0 0 0 3px #970202;margin:8px auto 18px}.event b{display:block;color:#970202;font-size:1.05em;margin-bottom:8px}.event span{display:block;font-size:.68em;line-height:1.25}.nodes{display:flex;gap:35px;align-items:center;justify-content:center;margin:50px}.nodes span{border:3px solid #041f56;border-radius:50%;width:125px;height:125px;display:flex;align-items:center;justify-content:center;font-weight:bold;background:#f8f9fb}.nodes span:not(:last-child):after{content:"—";position:absolute;margin-left:160px;color:#970202}.hero-year{font-size:2.8em;font-weight:800;color:#970202;line-height:1;margin:20px}.triple{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;width:88%}.triple>div{border:2px solid #041f56;border-radius:16px;padding:28px;background:#f8f9fb;font-size:1.1em}.legacy-web{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:18px;align-items:center;width:92%}.legacy-web img{max-width:100%;max-height:44vh;object-fit:contain;border:1px solid #ccc}.client-server{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:30px;width:82%;font-size:1.2em}.client-server>div:not(.arrows){border:3px solid #041f56;border-radius:18px;padding:35px;background:#f8f9fb}.arrows{color:#970202;font-weight:bold;line-height:2}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:88%}.steps>div{display:flex;align-items:center;gap:16px;border:2px solid #041f56;border-radius:14px;padding:18px;text-align:left}.steps b{font-size:1.7em;color:#970202}.http-pair{display:grid;grid-template-columns:1fr 1fr;gap:28px;width:90%}.status-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;width:90%}.status-grid>div{border:2px solid #041f56;border-radius:14px;padding:22px}.status-grid b{display:block;font-size:1.5em;color:#970202}.status-grid span{font-size:.7em}.reveal table{font-size:.72em}.reveal pre{width:90%}
+@media(max-width:900px){.compare-grid,.triple,.client-server,.http-pair{grid-template-columns:1fr}.timeline{flex-wrap:wrap}.timeline:before{display:none}.event{width:46%}.steps,.status-grid{grid-template-columns:1fr 1fr}.legacy-web{grid-template-columns:1fr}}

@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title><span class="lecture_placeholder"></title>
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
+  <link rel="stylesheet" href="css/mine.css">
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  <script type="module" src="js/material.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Cabeçalho -->
+  <div id="header-template">
+    <a href="https://unisal.br/">
+      <img src="img/logo_unisal.png" alt="Logo">
+    </a>
+    <h1>Aula &nbsp; <span id="aula_num_placeholder"></span> &nbsp; - &nbsp; <span class="lecture_placeholder"></span>
+      &nbsp; - &nbsp; <span class="lecture_subject_placeholder"></span></h1>
+  </div>
+
+  <!-- Rodapé -->
+  <div id="footer-template">
+    UNISAL - São José, Campinas - &nbsp; <span id="year-placeholder"></span>
+  </div>
+
+  <!-- Slides -->
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <a href="https://unisal.br/">
+          <img src="img/logo_unisal.png" alt="logo unisal"
+            style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+        </a>
+        <h2><span class="lecture_placeholder"></span></h2>
+        <h3><span class="lecture_subject_placeholder"></span></h3>
+        <p><small>Prof. Me. Gustavo Ferreira Palma</small></p>
+      </section>
+
+      <section>
+        <h2>Pauta</h2>
+        <ul>
+          <li>Internacionalização (i18n) e localização/regionalização (l10n)</li>
+          <li>Resources, strings, plurais, datas, números e moedas</li>
+          <li>Idiomas por aplicativo e layouts RTL</li>
+          <li>Acessibilidade e tecnologias assistivas</li>
+          <li>Semântica, <code>contentDescription</code>, foco e áreas de toque</li>
+          <li>Testes práticos com Jetpack Compose</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Internacionalização</h1>
+      </section>
+      <section>
+        <h2>Uma aplicação não vive só no nosso contexto</h2>
+        <ul>
+          <li>Idioma é apenas uma parte da experiência.</li>
+          <li>Datas, números, moedas, unidades e direção de leitura também variam.</li>
+          <li>Uma interface pode estar traduzida e ainda assim parecer “estrangeira”.</li>
+          <li>Projetar para outros contextos começa antes da tradução.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>i18n e l10n</h2>
+        <ul>
+          <li><b>Internacionalização (i18n)</b>: preparar o software para ser adaptável.</li>
+          <li><b>Localização (l10n)</b>: adaptar conteúdo e apresentação a uma localidade.</li>
+          <li>Regionalização envolve idioma, região, convenções e formatos.</li>
+          <li>Uma boa i18n reduz alterações de código durante a localização.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>O anti-padrão: texto no código</h2>
+        <pre><code class="language-kotlin">Text("Configurações")
+Button(onClick = { salvar() }) {
+    Text("Salvar")
+}</code></pre>
+        <p>Como traduzir sem alterar o código?</p>
+      </section>
+      <section>
+        <h2>Resources no Android</h2>
+        <pre><code class="language-xml">&lt;!-- res/values/strings.xml --&gt;
+&lt;resources&gt;
+    &lt;string name="settings"&gt;Configurações&lt;/string&gt;
+    &lt;string name="save"&gt;Salvar&lt;/string&gt;
+&lt;/resources&gt;</code></pre>
+        <pre><code class="language-kotlin">Text(stringResource(R.string.settings))</code></pre>
+      </section>
+      <section>
+        <h2>Recursos alternativos</h2>
+        <pre><code>res/
+├── values/strings.xml
+├── values-en/strings.xml
+├── values-es/strings.xml
+└── values-pt-rBR/strings.xml</code></pre>
+        <ul>
+          <li>O Android seleciona o recurso mais adequado à configuração.</li>
+          <li>O conjunto padrão continua sendo essencial como fallback.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Português e Inglês</h2>
+        <div style="display:flex;gap:60px;text-align:left">
+          <div><b>values/strings.xml</b>
+            <pre><code class="language-xml">&lt;string name="result"&gt;Resultado&lt;/string&gt;
+&lt;string name="clear"&gt;Limpar&lt;/string&gt;</code></pre>
+          </div>
+          <div><b>values-en/strings.xml</b>
+            <pre><code class="language-xml">&lt;string name="result"&gt;Result&lt;/string&gt;
+&lt;string name="clear"&gt;Clear&lt;/string&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Strings com parâmetros</h2>
+        <p>Não monte frases localizáveis por concatenação.</p>
+        <pre><code class="language-xml">&lt;string name="welcome"&gt;Olá, %1$s!&lt;/string&gt;</code></pre>
+        <pre><code class="language-kotlin">Text(
+    stringResource(R.string.welcome, nome)
+)</code></pre>
+        <p>A ordem das palavras pode mudar em outro idioma.</p>
+      </section>
+      <section>
+        <h2>Pluralização</h2>
+        <pre><code class="language-xml">&lt;plurals name="items"&gt;
+    &lt;item quantity="one"&gt;%d item&lt;/item&gt;
+    &lt;item quantity="other"&gt;%d itens&lt;/item&gt;
+&lt;/plurals&gt;</code></pre>
+        <pre><code class="language-kotlin">val texto = pluralStringResource(
+    R.plurals.items,
+    quantidade,
+    quantidade
+)</code></pre>
+      </section>
+      <section>
+        <h2>Por que plural não é apenas “adicionar S”?</h2>
+        <ul>
+          <li>Idiomas possuem regras diferentes de pluralização.</li>
+          <li>O Android trabalha com categorias como <code>one</code>, <code>few</code>, <code>many</code> e
+            <code>other</code>.
+          </li>
+          <li>A regra pertence à língua, não à lógica de negócio.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Unidades de Medida no Android</h2>
+
+        Diferentes elementos da interface utilizam
+        <strong>unidades de medida diferentes</strong>
+
+        <table style="font-size: 0.75em;">
+          <thead>
+            <tr>
+              <th>Unidade</th>
+              <th>Significado</th>
+              <th>Uso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>px</strong></td>
+              <td>Pixel</td>
+              <td>Pixel físico da tela</td>
+            </tr>
+            <tr>
+              <td><strong>dp</strong></td>
+              <td>Density-independent Pixel</td>
+              <td>Dimensões, espaçamentos e componentes</td>
+            </tr>
+            <tr>
+              <td><strong>sp</strong></td>
+              <td>Scale-independent Pixel</td>
+              <td>Principalmente tamanho de textos</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+          <strong>dp</strong> considera a densidade da tela.<br>
+          <strong>sp</strong> considera a densidade <em>e a preferência de tamanho
+            de fonte do usuário</em>.
+
+      </section>
+
+      <section>
+        <h2>dp × sp × px</h2>
+
+        <div style="
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        text-align: left;
+        margin-top: 40px;
+    ">
+
+          <div>
+            <h3>📐 Interface → dp</h3>
+
+            <pre><code class="language-kotlin">Modifier
+    .width(120.dp)
+    .height(48.dp)
+    .padding(16.dp)</code></pre>
+
+            <p>
+              Botões, margens, espaçamentos,
+              ícones e dimensões da interface.
+            </p>
+          </div>
+
+          <div>
+            <h3>🔤 Texto → sp</h3>
+
+            <pre><code class="language-kotlin">Text(
+    text = "Calculadora",
+    fontSize = 24.sp
+)</code></pre>
+
+            <p>
+              O tamanho pode acompanhar as
+              <strong>preferências de acessibilidade</strong>
+              configuradas pelo usuário.
+            </p>
+          </div>
+
+        </div>
+
+        <p style="margin-top: 40px; text-align: center;">
+          <strong>Evite definir a interface diretamente em px.</strong>
+        </p>
+      </section>
+
+      <section>
+        <h2>Por que textos usam sp?</h2>
+
+        <p>
+          O usuário pode alterar o
+          <strong>tamanho das fontes</strong>
+          nas configurações de acessibilidade do Android.
+        </p>
+
+        <div style="
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 60px;
+    ">
+
+          <div style="text-align: center;">
+            <p style="font-size: 24px;">Calculadora</p>
+            <small>Escala padrão</small>
+          </div>
+
+          <div style="font-size: 60px;">→</div>
+
+          <div style="text-align: center;">
+            <p style="font-size: 48px;">Calculadora</p>
+            <small>Fonte ampliada</small>
+          </div>
+
+        </div>
+
+        <p style="margin-top: 50px;">
+          Uma interface acessível deve continuar funcionando quando
+          <strong>o texto aumenta de tamanho</strong>.
+        </p>
+      </section>
+
+      <section>
+        <h1>Regionalização</h1>
+      </section>
+      <section>
+        <h2>Locale</h2>
+        <ul>
+          <li>Representa preferências linguísticas e regionais.</li>
+          <li><code>pt-BR</code>: português usado no Brasil.</li>
+          <li><code>en-US</code>: inglês usado nos Estados Unidos.</li>
+          <li><code>en-GB</code>: inglês usado no Reino Unido.</li>
+          <li>Mesmo idioma não significa mesmas convenções.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Números: o mesmo valor, outra escrita</h2>
+        <div style="font-size:1.25em">
+          <p><b>Brasil:</b> 1.234,56</p>
+          <p><b>Estados Unidos:</b> 1,234.56</p>
+        </div>
+        <pre><code class="language-kotlin">val formatter = NumberFormat.getNumberInstance()
+val texto = formatter.format(1234.56)</code></pre>
+      </section>
+      <section>
+        <h2>Moeda</h2>
+        <pre><code class="language-kotlin">val formatter = NumberFormat.getCurrencyInstance()
+val preco = formatter.format(1234.50)</code></pre>
+        <ul>
+          <li>Separadores e símbolo dependem da localidade.</li>
+          <li>Não concatene <code>"R$ " + valor</code>.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Datas e horários</h2>
+        <div style="font-size:1.15em">
+          <p><b>11/09/2026</b> — leitura comum no Brasil</p>
+          <p><b>09/11/2026</b> — pode representar a mesma data nos EUA</p>
+        </div>
+        <pre><code class="language-kotlin">val formatador = DateFormat.getDateInstance(
+    DateFormat.MEDIUM
+)
+val texto = formatador.format(Date())</code></pre>
+      </section>
+      <section>
+        <h2>Evite assumir formatos</h2>
+        <ul>
+          <li>Dia/mês/ano não é universal.</li>
+          <li>Relógio de 12 h e 24 h varia conforme contexto.</li>
+          <li>Vírgula nem sempre é separador decimal.</li>
+          <li>Unidades também podem precisar de adaptação.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Idioma por aplicativo</h2>
+        <ul>
+          <li>Android moderno permite escolher um idioma específico para cada app.</li>
+          <li>No Android 13+, essa preferência integra-se às configurações do sistema.</li>
+          <li>É possível declarar os idiomas suportados e oferecer um seletor no app.</li>
+          <li>Isso é diferente de simplesmente trocar textos manualmente.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Direção de leitura: RTL</h2>
+        <div style="display:flex;gap:90px;font-size:1.2em">
+          <div><b>LTR</b>
+            <p>← início &nbsp;&nbsp; fim →</p>
+          </div>
+          <div><b>RTL</b>
+            <p>← fim &nbsp;&nbsp; início →</p>
+          </div>
+        </div>
+        <ul>
+          <li>Árabe e hebraico usam direção da direita para a esquerda.</li>
+          <li>Prefira <code>start/end</code> a <code>left/right</code> em layouts.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Internacionalizar é mais que traduzir</h2>
+        <ul>
+          <li>Textos podem crescer ou diminuir.</li>
+          <li>Botões precisam comportar traduções maiores.</li>
+          <li>Imagens com texto embutido dificultam localização.</li>
+          <li>Layouts rígidos quebram mais facilmente.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Acessibilidade</h1>
+      </section>
+      <section>
+        <h2>Acessibilidade é parte de UX</h2>
+        <ul>
+          <li>Usuários podem interagir de maneiras diferentes da nossa.</li>
+          <li>Deficiências podem ser permanentes, temporárias ou situacionais.</li>
+          <li>Visão, audição, mobilidade e cognição influenciam a interação.</li>
+          <li>A interface deve comunicar significado além da aparência.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Tecnologias assistivas</h2>
+        <ul>
+          <li><b>TalkBack</b>: leitor de tela do Android.</li>
+          <li>Acesso com interruptor e outras formas alternativas de entrada.</li>
+          <li>Ampliação, tamanho de fonte e alto contraste.</li>
+          <li>Teclado físico e navegação por foco também importam.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>O que o TalkBack “enxerga”?</h2>
+        <p style="font-size:1.2em">Não a tela como nós vemos, mas uma <b>árvore semântica</b>.</p>
+        <ul>
+          <li>Texto</li>
+          <li>Descrição</li>
+          <li>Papel do componente</li>
+          <li>Estado</li>
+          <li>Ações disponíveis</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Semântica no Compose</h2>
+        <pre><code class="language-kotlin">Modifier.semantics {
+    contentDescription = "Adicionar produto"
+}</code></pre>
+        <ul>
+          <li>Semântica fornece significado aos serviços de acessibilidade e testes.</li>
+          <li>Componentes Material já carregam muita semântica automaticamente.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>contentDescription</h2>
+        <p>Um ícone visualmente óbvio pode ser invisível para um leitor de tela.</p>
+        <pre><code class="language-kotlin">Icon(
+    imageVector = Icons.Default.Delete,
+    contentDescription = stringResource(
+        R.string.cd_delete
+    )
+)</code></pre>
+      </section>
+      <section>
+        <h2>Descrição boa × descrição ruim</h2>
+        <div style="text-align:left;font-size:1.05em">
+          <p>❌ <code>contentDescription = "Ícone de lixeira vermelho"</code></p>
+          <p>✅ <code>contentDescription = "Excluir arquivo"</code></p>
+        </div>
+        <ul>
+          <li>Descreva significado/ação, não detalhes visuais desnecessários.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Quando usar null?</h2>
+        <pre><code class="language-kotlin">Icon(
+    imageVector = Icons.Default.Star,
+    contentDescription = null
+)</code></pre>
+        <ul>
+          <li>Elementos puramente decorativos não precisam ser anunciados.</li>
+          <li>Evite informação duplicada quando o texto vizinho já comunica tudo.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Um botão não precisa falar duas vezes</h2>
+        <pre><code class="language-kotlin">Button(onClick = onSave) {
+    Icon(
+        Icons.Default.Save,
+        contentDescription = null
+    )
+    Text(stringResource(R.string.save))
+}</code></pre>
+        <p>O texto do botão já fornece o significado da ação.</p>
+      </section>
+      <section>
+        <h2>Descrição também deve ser localizada</h2>
+        <p>Não faça:</p>
+        <pre><code class="language-kotlin">contentDescription = "Excluir"</code></pre>
+        <p>Faça:</p>
+        <pre><code class="language-kotlin">contentDescription = stringResource(
+    R.string.cd_delete
+)</code></pre>
+        <p>Internacionalização e acessibilidade se encontram aqui.</p>
+      </section>
+      <section>
+        <h2>Estados também precisam ser comunicados</h2>
+        <pre><code class="language-kotlin">Modifier.semantics {
+    stateDescription = if (ligado)
+        "Ativado"
+    else
+        "Desativado"
+}</code></pre>
+        <p>Quando necessário, exponha ao serviço assistivo o estado que o usuário precisa conhecer.</p>
+      </section>
+      <section>
+        <h2>Agrupando informação</h2>
+        <pre><code class="language-kotlin">Row(
+    modifier = Modifier.semantics(
+        mergeDescendants = true
+    ) { }
+) {
+    Icon(...)
+    Text("Wi-Fi")
+    Text("Conectado")
+}</code></pre>
+        <p>Elementos relacionados podem formar uma única unidade semântica.</p>
+      </section>
+      <section>
+        <h2>Área de toque</h2>
+        <div style="font-size:1.35em">
+          <p><b>24 dp</b> pode ser um bom tamanho visual para um ícone.</p>
+          <p><b>48 × 48 dp</b> é a referência mínima para a área interativa.</p>
+        </div>
+        <p>O alvo de toque pode ser maior que o desenho do ícone.</p>
+      </section>
+      <section>
+        <h2>Use componentes que já ajudam</h2>
+        <pre><code class="language-kotlin">IconButton(
+    onClick = onDelete
+) {
+    Icon(
+        Icons.Default.Delete,
+        contentDescription = stringResource(
+            R.string.cd_delete
+        )
+    )
+}</code></pre>
+        <p>Material Components já incorporam várias decisões de acessibilidade.</p>
+      </section>
+      <section>
+        <h2>Cor não pode ser a única mensagem</h2>
+        <div style="font-size:1.1em;text-align:left">
+          <p>❌ Campo vermelho</p>
+          <p>✅ ⚠ Campo vermelho + “Valor inválido”</p>
+        </div>
+        <ul>
+          <li>Daltonismo é um exemplo, mas a regra beneficia muitos contextos.</li>
+          <li>Use texto, forma, ícone ou outra pista adicional.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Contraste</h2>
+        <ul>
+          <li>Texto pequeno: referência de contraste de <b>4,5:1</b>.</li>
+          <li>Texto grande e gráficos essenciais: <b>3:1</b>.</li>
+          <li>Não assuma que “parece legível para mim” é um teste suficiente.</li>
+          <li>Temas claro, escuro e customizados precisam ser avaliados.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Escala de fonte</h2>
+        <ul>
+          <li>O usuário pode aumentar o tamanho do texto no sistema.</li>
+          <li>Layouts com alturas fixas podem cortar conteúdo.</li>
+          <li>Prefira componentes flexíveis e papéis de <code>MaterialTheme.typography</code>.</li>
+          <li>Teste o aplicativo com fontes grandes.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Foco e navegação</h2>
+        <ul>
+          <li>Existe uma ordem lógica para percorrer a interface?</li>
+          <li>O foco é visível?</li>
+          <li>É possível chegar às ações importantes sem depender apenas do toque?</li>
+          <li>Componentes customizados exigem atenção especial.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Texto e linguagem também são acessibilidade</h2>
+        <ul>
+          <li>Rótulos claros reduzem carga cognitiva.</li>
+          <li>Mensagens de erro devem explicar o problema e, quando possível, a solução.</li>
+          <li>Evite jargão quando ele não agrega significado.</li>
+          <li>Consistência de termos ajuda todos os usuários.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Aplicando no Android</h1>
+      </section>
+      <section>
+        <h2>Exemplo: botão acessível e localizável</h2>
+        <pre><code class="language-kotlin">IconButton(onClick = onClear) {
+    Icon(
+        imageVector = Icons.Default.Clear,
+        contentDescription = stringResource(
+            R.string.cd_clear_calculator
+        )
+    )
+}</code></pre>
+        <pre><code class="language-xml">&lt;string name="cd_clear_calculator"&gt;
+    Limpar calculadora
+&lt;/string&gt;</code></pre>
+      </section>
+      <section>
+        <h2>Exemplo: valor do acelerômetro</h2>
+        <pre><code class="language-kotlin">Text(
+    text = stringResource(
+        R.string.axis_value,
+        "X",
+        valorX
+    ),
+    style = MaterialTheme.typography.titleLarge
+)</code></pre>
+        <pre><code class="language-xml">&lt;string name="axis_value"&gt;%1$s: %2$.2f m/s²&lt;/string&gt;</code></pre>
+      </section>
+      <section>
+        <h2>Exemplo: informação sem depender da cor</h2>
+        <pre><code class="language-kotlin">if (erro) {
+    Row {
+        Icon(
+            Icons.Default.Warning,
+            contentDescription = null
+        )
+        Text(stringResource(R.string.invalid_value))
+    }
+}</code></pre>
+        <p>O ícone é decorativo porque o texto já anuncia a informação.</p>
+      </section>
+      <section>
+        <h2>Checklist rápido</h2>
+        <ul>
+          <li>Há textos fixos no Kotlin?</li>
+          <li>Datas, números e moedas respeitam Locale?</li>
+          <li>Ícones de ação possuem descrição?</li>
+          <li>Elementos decorativos estão fora da leitura desnecessária?</li>
+          <li>A informação depende somente de cor?</li>
+          <li>Alvos de toque são adequados?</li>
+          <li>Fonte grande quebra o layout?</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Teste com TalkBack</h2>
+        <ol>
+          <li>Ative o TalkBack no dispositivo.</li>
+          <li>Percorra a tela sem olhar para ela.</li>
+          <li>Observe ordem, descrições, estados e ações anunciadas.</li>
+          <li>Corrija a semântica e teste novamente.</li>
+        </ol>
+        <p><b>O teste manual continua sendo indispensável.</b></p>
+      </section>
+      <section>
+        <h2>Teste de internacionalização</h2>
+        <ol>
+          <li>Execute o app em português.</li>
+          <li>Troque para inglês.</li>
+          <li>Observe textos maiores e menores.</li>
+          <li>Teste datas, números e moedas.</li>
+          <li>Procure textos que ficaram no idioma original.</li>
+        </ol>
+      </section>
+
+
+      <section>
+        <h2>Desafio</h2>
+        <p style="font-size:1.25em">Use o aplicativo por alguns minutos com <b>TalkBack ativado e sem olhar para a
+            tela</b>.</p>
+        <p>Quais decisões visuais deixaram de existir? Quais informações semânticas passaram a ser essenciais?</p>
+      </section>
+
+      <section>
+        <h1>OBRIGADO!</h1>
+        <p>Podem me encontrar aqui:</p>
+        <ul>
+          <li>gustavo.palma@unisal.edu.br</li>
+          <li>www.gustavopalma.com.br</li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="../../../dist/reveal.js"></script>
+
+
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/zoom/zoom.js"></script>
+  <script>
+    const iframe = document.getElementById('terminal');
+    if (iframe != null) {
+      iframe.onload = () => {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        const style = doc.createElement('style');
+        style.innerHTML = `
+      .xterm {
+        font-size: 20px !important;
+        line-height: 1.2 !important;
+      }
+    `;
+        doc.head.appendChild(style);
+      };
+    }
+
+  </script>
+
+  <script>
+    function selecionarRail(elemento) {
+      const rail = elemento.closest('.navigation-rail-demo');
+
+      rail.querySelectorAll('.navigation-rail-item')
+        .forEach(item => item.classList.remove('active'));
+
+      elemento.classList.add('active');
+    }
+  </script>
+
+  <script>
+    function selecionarNav(elemento) {
+      const barra = elemento.closest('.navigation-demo');
+
+      barra.querySelectorAll('.navigation-item')
+        .forEach(item => item.classList.remove('active'));
+
+      elemento.classList.add('active');
+    }
+  </script>
+  <script>
+    Reveal.on('ready', event => {
+      const headerTemplate = document.getElementById('header-template');
+      const footerTemplate = document.getElementById('footer-template');
+
+      document.querySelectorAll('.slide-background').forEach(backgroundDiv => {
+        if (headerTemplate) {
+          backgroundDiv.appendChild(headerTemplate.cloneNode(true));
+        }
+        if (footerTemplate) {
+          backgroundDiv.appendChild(footerTemplate.cloneNode(true));
+        }
+      });
+
+      const nomeDisciplina = "UI & UX";
+      const assuntoAula = "Internacionalização, Regionalização e Acessibilidade"
+      const aulaNum = '4';
+      const currentDate = new Date();
+
+      // Get the full four-digit year
+      const currentYear = " " + currentDate.getFullYear(); // e.g., 2026
+
+      // Find the HTML element by its ID and set its text content to the current year
+      document.getElementById('year-placeholder').textContent = "\  " + currentYear;
+      var elems = document.getElementsByClassName('lecture_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = nomeDisciplina;
+      }
+      document.title = nomeDisciplina;
+      document.getElementById('aula_num_placeholder').textContent = aulaNum
+      elems = document.getElementsByClassName('lecture_subject_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = assuntoAula;
+      }
+    });
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      center: true,
+      width: "100%",
+      height: "100%",
+      margin: 0,
+      controls: true,
+      controlsBackArrows: 'faded',
+      progress: true,
+      plugins: [RevealHighlight, RevealZoom],
+    });
+  </script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+
+</html>

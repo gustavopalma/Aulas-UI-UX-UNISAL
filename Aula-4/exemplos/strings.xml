@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Calculadora</string>
+    <string name="save">Salvar</string>
+    <string name="cd_delete">Excluir arquivo</string>
+    <string name="axis_value">%1$s: %2$.2f m/s²</string>
+    <plurals name="items">
+        <item quantity="one">%d item</item>
+        <item quantity="other">%d itens</item>
+    </plurals>
+</resources>
